@@ -1,7 +1,25 @@
-\section{Indtroduktion til Taylor Polynomier}
-Taylor serier er en måde at approksimere en funktions værdier omkring en værdi ($a$), approksimationen sker ved hjælp af $n$'te grads polynomiumer. Den gennerelle definitation er givet ved:
-\[
-\sum^{\infty}_{i=0} \frac{1}{i!} \frac{d^i f(a)}{dx} (x-a)^{i} = f(a) + \frac{1}{1!} \frac{df(a)}{dx} (x-a)^{1} + \frac{1}{2!} \frac{d^{2}f(a)}{dx^{2}} + ... + \frac{1}{n!} \frac{d^{n} f(a)}{dx^{n}} (x-a)^{n}
-\]
+\chapter{Introduktion til Taylor Serier og Polynomier}
+\label{ch:ItTP}
+Taylor polynomier er en måde at approksimere en funktions værdier omkring en værdi indput værdi ($a$), 
+approksimationen sker ved hjælp af et $n$'te grads polynomium. Den gennerelle definitation, for et taylor polynomium med en variable, er givet ved:
 
+\[
+P_n = \sum^{n}_{i=0} \frac{1}{i!} \frac{d^i f(a)}{dx^i} (x-a)^{i}
+\]
+\label{def:taylorPolynomium}
+
+Idéen er at polynomiumets $n$'te afledte i $a$ bliver det samme som funktionens $n$'te afledte i $a$, 
+dette skaber en god approksimation omkring $a$ men garrentere ikke en god approksimation, 
+for alle værdier i funktionens definitations mængde $D(f(x))$. Ofte bliver approksimationen dog bedre jo flere led
+Taylor polynomiet indeholder, 
+
+
+\[
+\sum^{\infty}_{i=0} \frac{1}{i!} \frac{d^i f(a)}{dx^i} (x-a)^{i} = f(a) + \frac{1}{1!} \frac{df(a)}{dx} (x-a)^{1} + \frac{1}{2!} \frac{d^{2}f(a)}{dx^{2}} + \ldots + \frac{1}{n!} \frac{d^{n} f(a)}{dx^{n}} (x-a)^{n}
+\]
+\label{def:taylorSerie}
+
+
+
+Det handler altså om polynomiumets $n$'te 
 Nogle Taylor Serier kan approksimere en hel funktion imens andre kun kan approksimere i området omkring værdien $a$.
