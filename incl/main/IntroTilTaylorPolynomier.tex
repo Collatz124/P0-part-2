@@ -1,5 +1,5 @@
 \chapter{Introduktion til Taylor Polynomier}
-\label{ch:ItTP}
+\label{ch:tp}
 % Taylor Polynomier
 Taylor polynomier er en måde at approksimere en funktions værdier omkring en værdi $a$, 
 approksimationen sker ved hjælp af et $n$'te grads polynomium. Se nedenstående definition: 
@@ -11,14 +11,11 @@ approksimationen sker ved hjælp af et $n$'te grads polynomium. Se nedenstående
     hvor $n \in \mathbb{N}$
 \end{defn}
 \label{def:taylorPolynomium}
-Idéen er at polynomiumets $n$'te afledte i $a$ bliver det samme som funktionens $n$'te afledte i $a$, 
-dette skaber en god approksimation omkring $a$ men garrentere ikke en god approksimation, 
-for alle værdier i funktionens definitations mængde: $x \in D(f(x))$. Approksimation bliver dog ofte bedre jo flere led
-Taylor polynomiet indeholder, dette gælder dog ikke for alle funktioner, et simpelt eksempel kunne fx være funktionen $ln(x)$
-omkring punktet $a=1$ hvor taylor polynomiet kun convergere imod $ln(x)$ hvor $x \in \mathbb{R} \setminus\{(0, 2)\} \land x > 0$. 
-Selv om man lader $n \rightarrow \infty$, hvis $x > 2$ gælder $P_n(x) \not \approx ln(x)$ dog stadig ikke.
-Derudover bør det nævnes at hvis $n \rightarrow \infty$ gælder, kaldes Taylor polynomiet for en Taylor serie, mere om dette i et senere afsnit. % TODO: Indsæt refference til afsnitet 
-\subsection*{Eksempler på taylor polynomier}
-% Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-series-of-lnx-about-x-1-is-0-2
+Idéen er at polynomiumets $n$'te afledte i $x = a$ bliver det samme som funktionens $n$'te afledte i $x = a$, 
+dette skaber en god approksimation omkring $x = a$, men garrentere ikke en god approksimation 
+for alle værdier i funktionens definitations mængde: $x \in D(f(x))$. Approksimation bliver dog ofte bedre jo 
+flere led Taylor polynomiet indeholder, dette gælder dog ikke for alle funktioner, hvilket beskrives nærmere i kapitel: \refname{ch:ts}. 
+En af fordelene ved at benytte et taylor polynomium som approksimation for en mere kompleks funktion
+er at polynomier gennerelt er nemmere at integere end andre funktioner, fordi de følger reglen: $\int k x^n = \frac{k}{n + 1}x^{n + 1}$ .
 
-% Taylor Serier
+\subsection*{Eksempler på taylor polynomier}
