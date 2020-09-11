@@ -1,18 +1,37 @@
 \chapter{Introduktion til Taylor Serier}
-hvis taylor polynomiet indeholder udendeligt mange led, 
-kalder man det for en taylor serie i stedet for et polynomie. Gennerelt kan taylor serier opstilles som:
+Hvis taylor polynomiet indeholder udendeligt mange led, 
+kalder man det for en taylor serie i stedet for et polynomie. 
 \begin{defn}
-    En taylor serie er givet ved den uendelige sum:
+    En Taylor serie for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
     \[
-    \sum^{\infty}_{i=0} \frac{1}{i!} \frac{d^i f(a)}{dx^i} (x-a)^{i} = f(a) + \frac{1}{1!} \frac{df(a)}{dx} (x-a)^{1} + \frac{1}{2!} \frac{d^{2}f(a)}{dx^{2}} + \ldots + \frac{1}{n!} \frac{d^{n} f(a)}{dx^{n}} (x-a)^{n}
+    \sum^{\infty}_{i=0} \frac{d^i f(a)}{dx^i} \frac{(x-a)^{i}}{i!} = f(a) + \frac{df(a)}{dx} \frac{(x-a)^{1}}{1!} + \frac{d^{2}f(a)}{dx^{2}} \frac{(x-a)^{2}}{2!} + \ldots + \frac{d^{n} f(a)}{dx^{n}} \frac{(x-a)^n}{n!}
     \]
 \end{defn}
+Idéen med at hældningen af taylor serien og hældningen for funktionen er den samme i værdien $a$ ses også her.
+Her er dog uendeligt mange led, hvilket skaber en bedre approksimation omkring værdien $a$. 
+En vigtig egenskab for hver taylor serie er dens radius for konvergens % TODO: Beskriv radius for konvergens
 \label{def:taylorSerie}
-Det er dog ikke altid at taylor serien convergere imod alle værdier i $D(f(x))$, et eksempel kan fx være 
+\subsection*{Eksempler på taylor serier} 
 
+% Taylor serie for e^x TODO: beregn radius for konvergens
+Der ønskes en serie for beregning af funktions værdien for funktionen $f(x) = e^x$ omkring $a = 0$.
+Da $\frac{d}{dx}(e^x) = e^x$ kan taylor serien opskrives som:
+\[
+\sum^\infty_{i = 0} e^a \frac{(x-a)^i}{i!}
+\]
+og da $a = 0$ kan serien forsimples yderligere:
+\[
+\sum^\infty_{i = 0} \frac{x^i}{i!}  
+\]
+Hvis det antages at seriens radius for konvergens er $\infty$ kan følgende udtryk opstilles for at beregne $e^x$ for $x \in \mathbb{R}$
+% TODO: Kan man antage at radiusen for konvergens er $\infty$
+\[
+e^x = \sum^\infty_{i = 0} \frac{x^i}{i!}  
+\]
+\subsection*{Konvergens radius for Taylor serier} % Taylor serie for ln(x)
+Det er dog ikke altid at taylor serien convergere imod $f(x)$ for alle $x \in D(f(x))$ når $n \rightarrow \infty$,
+et eksempel $ln(x)$ blev bl.a. nævnt i kapitel \ref{ch:ItTP} 
 
-Det handler altså om polynomiumets $n$'te 
-Nogle Taylor Serier kan approksimere en hel funktion imens andre kun kan approksimere i området omkring værdien $a$.
 
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-series-of-lnx-about-x-1-is-0-2
 
