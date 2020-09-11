@@ -2,11 +2,14 @@
 \label{ch:ItTP}
 % Taylor Polynomier
 Taylor polynomier er en måde at approksimere en funktions værdier omkring en værdi $a$, 
-approksimationen sker ved hjælp af et $n$'te grads polynomium. 
-Den gennerelle definitation, for et taylor polynomium med en variable, er givet ved:
-\[
-P_n = \sum^{n}_{i=0} \frac{d^i f(a)}{dx^i} \frac{(x-a)^{i}}{i!}
-\]
+approksimationen sker ved hjælp af et $n$'te grads polynomium. Se nedenstående definition: 
+\begin{defn}
+    Det $n$'te grads Taylor polynomium $P_n$ omkring værdien $a$ er givet ved:
+    \[
+    P_n = \sum^{n}_{i=0} \frac{d^i f(a)}{dx^i} \frac{(x-a)^{i}}{i!}
+    \]
+    hvor $n \in \mathbb{N}$
+\end{defn}
 \label{def:taylorPolynomium}
 Idéen er at polynomiumets $n$'te afledte i $a$ bliver det samme som funktionens $n$'te afledte i $a$, 
 dette skaber en god approksimation omkring $a$ men garrentere ikke en god approksimation, 
@@ -19,15 +22,3 @@ Derudover bør det nævnes at hvis $n \rightarrow \infty$ gælder, kaldes Taylor
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-series-of-lnx-about-x-1-is-0-2
 
 % Taylor Serier
-
-hvis taylor polynomiet indeholder udendeligt mange led, 
-kalder man det for en taylor serie i stedet for et polynomie. Gennerelt kan taylor serier opstilles som:
-\[
-\sum^{\infty}_{i=0} \frac{1}{i!} \frac{d^i f(a)}{dx^i} (x-a)^{i} = f(a) + \frac{1}{1!} \frac{df(a)}{dx} (x-a)^{1} + \frac{1}{2!} \frac{d^{2}f(a)}{dx^{2}} + \ldots + \frac{1}{n!} \frac{d^{n} f(a)}{dx^{n}} (x-a)^{n}
-\]
-\label{def:taylorSerie}
-Det er dog ikke altid at taylor serien convergere imod alle værdier i $D(f(x))$, et eksempel kan fx være 
-
-
-Det handler altså om polynomiumets $n$'te 
-Nogle Taylor Serier kan approksimere en hel funktion imens andre kun kan approksimere i området omkring værdien $a$.
