@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Mikkel Hviid Thorn}
+\begin{document}
+
+\chapter{Taylors teori anvendt på trigonometriske funktioner}
+
+Dette kapitel vil vise, hvordan man udleder en Taylorserie for $sin(x)$, og hvordan man kan anvende den Taylorserie på andre trigonometriske funktioner.
+
+\section{Taylorrække for $sin(x)$}
+
+Når man udleder en Taylorrække er det værd at tænke på, hvilken $c$-værdi man vælger, da den ofte afgør, hvor nyttig Taylorrækken er. Målet med Taylorrækken er at gøre $sin(x)$ nemmere at regne på, så ideelt vil man blandt $sin(x)$ og dens afledte finde værdier for $c$, der giver heltal eller nemme brøker. Først differentieres $sin(x)$, så man kan skabe sig et overblik over de afledte til funktionen;
+
+\begin{align*}
+f(x) &= sin(x) \\
+f'(x) &= cos(x) \\
+f''(x) &= -sin(x) \\
+f'''(x) &= -cos(x) \\
+\end{align*}
+
+Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ \textit{sin(x)} og \textit{cos(x)}. Hvis man ser på enhedscirklen, så vil funktioner alle give heltal, for hver kvarte omgang, hvilket svarer værdier af $1/2\pi$ ganget med et heltal $z$, hvor $z\in\mathbb{Z}$. Så hvis $c=1/2\pi z$ giver \textit{sin(x)} og dens afledte pæne værdier i form af heltallene $-1$, $0$ og $1$. Dog så vil Taylorrækken indeholde $\pi$ for alle $z\neg0$, hvilket kan gøre udregninger senere svære. Derfor vælges $z=0$ og dermed $c=0$, hvilket giver følgende værdier for \textit{sin(x)} og dens afledte;
+
+\begin{align*}
+f(0) &= 0 \\
+f'(0) &= 1 \\
+f''(0) &= 0 \\
+f'''(0) &= -1 \\
+\end{align*}
+
+Taylorrækken for $sin(x)$ omkring $0$ bliver derfor;
+
+\begin{align*}
+sin(x) &= 0+x+0 \cdot \frac{x^2}{2}-\frac{x^3}{3!}+0 \cdot \frac{x^4}{4!}+\frac{x^5}{5!}+... \\
+sin(x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+... \\
+\end{align*}
+
+Her vises det, at hver anden funktionsværdi i rækken af \textit{sin(x)}'s afledte for $x=c=0$ giver $0$. Specifikt alle funktionsværdierne af funktioner, hvor \textit{sin(x)} er differentieret et lige antal gange. Dermed er det kun leddende i Taylorrækken med ulige eksponenter, som er tilbage i rækken. Man kan da udtrykke alle eksponenterne som de ulige tal $2n+1$, hvor det så undgås at skulle inkluderer leddene, der giver $0$. De resterende led skifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative. Hvor $2n+1$ repræsenterer eksponenterne, så repræsenterer $(-1)^n$ funktionsværdierne. Dermed er summen for Taylorrækken for $sin(x)$ omkring $0$;
+
+\begin{equation}\label{sinrække}
+sin(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
+\end{equation}
+
+Dette er dermed også Maclaurinrækken for $sin(x)$.
+
+%evt. kilde til Maclaurinserien for sinus i bogen side 544-545 section 9.6
+
+%evt. en graf over taylorpolynomier omkring sinusfunktion
+%eller en graf over taylorserien
+
+%evt. bevise at taylorserien konvergerer med sin(x), range test
+
+\section{Taylorrække for $cos(x)$}
+
+Hvis man derefter vil udlede en Taylorrække for $cos(x)$ omkring samme $c$-værdi, så vil man kunne differentiere Taylorrækken for $sin(x)$, da $\frac{\mathrm{d}}{\mathrm{d}x}sin(x)=cos(x)$. Hvis man differentiere Taylorrækken i ligning \ref{sinrække}, så for man rækken;
+
+%man kan differentiere serien p.ga. teori 19 i calculus-bogen side 536-537 section 9.5
+
+\[
+\frac{\mathrm{d}}{\mathrm{d}x} \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
+=
+\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}
+\]
+
+Rækken er også kendt som Maclaurinrækken for $cos(x)$;
+
+%evt. kilde til Maclaurinserien for cosinus i bogen side 544-545 section 9.6
+
+\begin{equation}\label{cosrække}
+cos(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}
+\end{equation}
+
+Hvorimod man kunne udlede rækken ved at arbejde med $cos(x)$, så gjorde de kendte relationer mellem $cos(x)$ og $sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $sin(x)$ i ligning \ref{sinrække}. Maclaurinrækken  for $sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $cos(x)$, da $\int sin(x) \mathrm{d} x=-cos(x)+k$, hvor $k=-cos(0)=-1$;
+
+\begin{align*}
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \mathrm{d} x
+&=
+-\left(\sum_{n=1}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}-1\right) \\
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \mathrm{d} x
+&=
+\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \\
+\end{align*}
+
+Dermed kan man anvende Maclaurinrækken for $sin(x)$ til at udlede Maclaurinrækken for $cos(x)$ ved både differentiation og integration.
+
+%evt. graf over cos(x) og serien eller polynomier
+
+%range test på cos
+
+\section{Approksimation af $tan(x)$}
+
+Til $tan(x)$ kan man igen udnytte dens relation til de andre trigonometriske funktioner, hvor ligningen $tan(x)=\frac{sin(x)}{cos(x)}$ er gældende. Hvis man derfor tager rækken i ligning \ref{sinrække} og dividerer med rækken i ligning \ref{cosrække}, så får man $tan(x)$;
+
+\begin{equation}\label{tanbrøk}
+tan(x)
+=
+\frac{\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}}
+{\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}}
+\end{equation}
+
+Hvis man tager delsumme af de to summe med samme øvre grænse, så for man en rationel funktion, som approksimerer $tan(x)$ omkring $0$.
+
+%evt. grafer af approksimationen.
+
+\end{document}
