@@ -15,11 +15,24 @@ Restleddet kan også beskrives på følgende møde:
 \end{equation}
 hvor u er et tal mellem x og a. %plagiat?
 \
-Det er ikke altid, at man kender værdien af u, så man kan altså ikke nødvendigvis finde ud af præcis hvor stor afvigelsen er (så kunne man jo finde en funktion tilsvarende $f(x)$, som  havde præcis de samme funktionsværdier for alle værdier af $x$ i definitionsmængden).\
-Man kan dog ofte finde en nedre og øvre grænse for afvigelsen. Det vil sige, at man ofte kan finde en værdi af $\psi$, der opfylder
+Man kender sjældent værdien af u, så man kan altså ikke nødvendigvis finde ud af præcis hvor stor afvigelsen er.\\
+Man kan dog ofte finde ud af en grænse for, hvor stor restleddet kan være. Med andre ord, kan finde en værdi af $\psi$, der opfylder
 \begin{equation}
 	|R_n(x)|\leq \psi
 \end{equation}
-Det vil sige, at man ved, at fejlen ikke er større end $\psi$, og dermed kan man fastlægge et interval $[P_n(x)-\psi,P_n(x)+\psi]$, hvori $f(x)$ er indeholdt. I næste afsnit vil et par eksempler på, hvordan dette kan se ud for nogle bestemte funktioner, figurere.
+Når man har fundet ud af, at fejlen ikke kan være større end $\psi$, kan man fastlægge et interval 
+\begin{equation*}
+[P_n(x)-\psi,P_n(x)+\psi],
+\end{equation*}
+hvori $f(x)$ er indeholdt. I næste afsnit vil et par eksempler på, hvordan dette kan se ud for nogle bestemte funktioner, figurere.\\
+Når man sætter restleddet sammen med teorien for Taylor-polynomier, får man Taylors sætning:
+
 
 \section{Eksempler på anvendelse af restled}
+\subsection*{Restleddet anvendt på approksimation af $\sin(x)$}
+Vi vil her gennemgå, hvordan man kan approksimere en af de vigtigste konstanter i matematikkens verden, $\sin(\frac{\pi}{2})=1$, ved hjælp af Taylors sætning. Det er måske ikke det mest interresante eksempel, eftersom konstanten 1 er et ret så rationelt tal. Dog kan anvendelsen af restleddet tydeligt demonstreres med dette eksempel.
+Som sagt, vil vi gerne approximere $\sin(\frac{\pi}{2})$, og dette gøres ved hjælp af et Maclaurin-polynomium for $\sin(x)$. Mere specifikt benytter vi et Maclaurin-polynomium af tredje orden.
+Dette findes ved hjælp af formlen fra \ref{def:taylorPolynomium}, hvor $N=3$ og $a=0$:
+\begin{equation}
+	P_3=\sum^{3}_{n=0}\frac{x \cdot f^n(0)}{n!}
+\end{equation}
