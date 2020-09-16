@@ -1,10 +1,10 @@
-\chapter{Introduktion til Taylor Polynomier}
+\chapter{Introduktion til Taylorpolynomier}
 \label{ch:tp}
-% Taylor Polynomier
-Taylor polynomier er en måde at approksimere en funktions værdier omkring en værdi $a$, 
+% Taylorpolynomier
+Taylorpolynomier er en måde at approksimere en funktions værdier omkring en værdi $a$, 
 approksimationen sker ved hjælp af et $n$'te grads polynomium. Se nedenstående definition: 
 \begin{defn}
-    Det $n$'te grads Taylor polynomium $P_n$ til den continuere funktion $f(x)$ omkring værdien $a$ er givet ved:
+    Det $n$'te grads Taylorpolynomium $P_n$ til den continuere funktion $f(x)$ omkring værdien $a$ er givet ved:
     \[
     P_n = \sum^{n}_{i=0} \frac{d^i f(a)}{dx^i} \frac{(x-a)^{i}}{i!}
     \]
@@ -14,8 +14,10 @@ approksimationen sker ved hjælp af et $n$'te grads polynomium. Se nedenstående
 Idéen er at polynomiumets $n$'te afledte i $x = a$ bliver det samme som funktionens $n$'te afledte i $x = a$, 
 dette skaber en god approksimation omkring $x = a$, men garrentere ikke en god approksimation 
 for alle værdier i funktionens definitations mængde: $x \in D(f(x))$. Approksimation bliver dog ofte bedre jo 
-flere led Taylor polynomiet indeholder, dette gælder dog ikke for alle funktioner, hvilket beskrives nærmere i kapitel: \refname{ch:ts}. 
-En af fordelene ved at benytte et taylor polynomium som approksimation for en mere kompleks funktion
+flere led Taylorpolynomiet indeholder, dette gælder dog ikke for alle funktioner, hvilket beskrives nærmere i kapitel: \refname{ch:ts}. 
+En af fordelene ved at benytte et Taylorpolynomium som approksimation for en mere kompleks funktion
 er at polynomier gennerelt er nemmere at integere end andre funktioner, fordi de følger reglen: $\int k x^n = \frac{k}{n + 1}x^{n + 1}$ .
 
-\subsection*{Eksempler på taylor polynomier}
+% HUSK MACLAURIN POLYNOMIER
+
+\subsection*{Eksempler på Taylorpolynomier}
