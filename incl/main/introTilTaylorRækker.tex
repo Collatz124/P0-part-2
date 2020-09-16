@@ -1,12 +1,12 @@
-\chapter{Introduktion til Taylorrækker}
+\chapter{Introduktion til Taylorrækker} % TODO: erstat $d^nf(a) / dx^n$ med $f^n(a)$
 \label{ch:tr}
 Hvis Taylorpolynomiet indeholder udendeligt mange led, 
 kalder man det for en Taylorrække i stedet for et polynomiem. 
 \begin{defn}
     En Taylorrække $T_f(x)$ for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
     \[
-        T_f(x) = \sum^{\infty}_{n=0} \frac{d^n f(a)}{dx^n} \frac{(x-a)^{n}}{n!} = f(a) + \frac{df(a)}{dx} \frac{(x-a)^{1}}{1!} + 
-        \frac{d^{2}f(a)}{dx^{2}} \frac{(x-a)^{2}}{2!} + \ldots + \frac{d^{n} f(a)}{dx^{n}} \frac{(x-a)^n}{n!}
+        T_f(x) = \sum^{\infty}_{n=0} f^n(a) \frac{(x-a)^{n}}{n!} = f(a) + f'(a) \frac{(x-a)^{1}}{1!} + 
+        f''(a) \frac{(x-a)^{2}}{2!} + \ldots
     \]
     Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurin række.
 \end{defn}
@@ -38,7 +38,7 @@ For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet be
     \[
         \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{c_{n + 1}}{c_n} \right\lvert
     \]
-    Hvor $c_n$ for taylorrækker er givet ved $c_n = n!^{-1}\frac{d^n f(a)}{dx^n}$.
+    Hvor $c_n$ for taylorrækker er givet ved $c_n = \dfrac{f^n(a)}{n!}$.
 \end{defn} % TODO: BEVIS 
 
 
@@ -51,7 +51,6 @@ For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet be
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
 % Ratio test for Rækker: https://www.youtube.com/watch?v=av947KCWf2U&ab_channel=KhanAcademy 
 \subsection*{\textbf{Eksempel:} Maclaurin rækken for $e^x$ og dens radius for konvergens} 
-% Taylorrække for e^x TODO: beregn radius for konvergens
 Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
 Da $\frac{d}{dx}e^x = e^x$ kan Maclaurin rækken opskrives som:
 \[
@@ -63,26 +62,39 @@ T_{e^x}(x) = \sum^\infty_{n = 0} \frac{x^n}{n!}
 \]
 Herefter beregnes rækkens radius for konvergens:
 \[
-    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}\frac{d^{n+1} f(a)}{dx^{n+1}}}{n!^{-1}\frac{d^n f(a)}{dx^n}} \right\lvert
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}f^{(n+1)}(a)}{n!^{-1}f^n(a)} \right\lvert
     = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{1}{(n + 1)!}e^a}{\frac{1}{n!}e^a} \right\lvert 
     = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{1}{(n + 1)!}}{\frac{1}{n!}} \right\lvert
 \]
 Der ses bort fra den absolutte værdi fordi $(n + 1)! > n! > 0$:
 \[
     \frac{1}{R}= \lim_{n \rightarrow \infty} \frac{n!}{(n + 1)!} 
-    = \lim_{n \rightarrow \infty} \frac{n \times (n-1) \times \ldots \times 2 \times 1}{(n + 1) \times n \times (n-1) \times \ldots \times 2 \times 1}
+    = \lim_{n \rightarrow \infty} \frac{n \cdot (n-1) \cdot \ldots \cdot 2 \cdot 1}{(n + 1) \cdot n \cdot (n-1) \cdot \ldots \cdot 2 \cdot 1}
     = \lim_{n \rightarrow \infty} \frac{1}{n + 1}
 \]
 Og da $n \rightarrow \infty$ må følgende gælde: $\frac{1}{R} = \frac{1}{\infty} \Leftrightarrow R = \infty$ rækken konvergere altså for alle $x \in \mathbb{R}$.
 Derved kan følgende udtryk opstilles:
 \[
-e^x = \sum^\infty_{i = 0} \frac{x^i}{i!}  
+e^x = \sum^\infty_{n = 0} \frac{x^n}{n!}  
 \]
-\subsection*{\textbf{Eksempel:} Maclaurin rækken for $ln(x)$ } % Taylorrække for ln(x)
-Det er dog ikke altid at Taylorrækken convergere imod $f(x)$ for alle $x \in D(f(x))$ når $n \rightarrow \infty$,
-et eksempel $ln(x)$ blev bl.a. nævnt i kapitel \ref{ch:ItTP} 
-
-
+\subsection*{\textbf{Eksempel:} Taylorrækken rækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
+Taylorrækken for $ln(x)$ er givet ved:
+\[
+    T_{ln}(x) = ln(a) + \frac{ln'(a)}{1!}(x-a)^1 + \frac{ln''(a)}{2!}(x-a)^2 + \ldots + \frac{ln^{(n)}(a)}{n!}(x - a)^n
+\]
+Hvilket kan opskrives pænere som:
+\[
+    T_{ln}(x) = ln(a) + \sum^{\infty}_{n = 1} \frac{(-1)^{(n + 1)}}{n!} \frac{n}{a^{(n+1)}}(x-a)^n
+\]
+$a = 1$ indsættes:
+\[
+    T_{ln}(x) = ln(1) + \sum^{\infty}_{n = 1} \frac{(-1)^{(n + 1)}}{n!} \frac{n}{1^{(n+1)}}(x-1)^n = \sum^{\infty}_{n = 1} \frac{n \cdot (-1)^{(n + 1)}}{n!} (x-1)^n
+\]
+Nu beregnes Taylorrækkens radius for konvergens: % TODO: Lav det her 
+\[
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}f^{(n+1)}(a)}{n!^{-1}f^n(a)} \right\lvert
+    = \left\lvert \frac{\frac{(n+1) \cdot (-1)^{(n + 2)}}{(n+1)!}}{\frac{n \cdot (-1)^{(n + 1)}}{n!}} \right\lvert
+\]
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
 
 % Taylorrækker
