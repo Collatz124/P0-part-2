@@ -1,57 +1,88 @@
-\chapter{Introduktion til Taylor Rækker}
-\label{ch:ts}
-Hvis taylor polynomiet indeholder udendeligt mange led, 
-kalder man det for en taylor række i stedet for et polynomie. 
+\chapter{Introduktion til Taylorrækker}
+\label{ch:tr}
+Hvis Taylorpolynomiet indeholder udendeligt mange led, 
+kalder man det for en Taylorrække i stedet for et polynomiem. 
 \begin{defn}
-    En Taylor række for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
+    En Taylorrække $T_f(x)$ for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
     \[
-        \sum^{\infty}_{i=0} \frac{d^i f(a)}{dx^i} \frac{(x-a)^{i}}{i!} = f(a) + \frac{df(a)}{dx} \frac{(x-a)^{1}}{1!} + 
+        T_f(x) = \sum^{\infty}_{n=0} \frac{d^n f(a)}{dx^n} \frac{(x-a)^{n}}{n!} = f(a) + \frac{df(a)}{dx} \frac{(x-a)^{1}}{1!} + 
         \frac{d^{2}f(a)}{dx^{2}} \frac{(x-a)^{2}}{2!} + \ldots + \frac{d^{n} f(a)}{dx^{n}} \frac{(x-a)^n}{n!}
     \]
+    Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurin række.
 \end{defn}
 \label{def:taylorrække}
-Idéen med at hældningen af taylor rækken og hældningen for funktionen er den samme i værdien $a$ ses også her.
+Idéen med at de afledte af Taylorrækken og for funktionen er de samme i punktet $a$ 
+ses igen her ligesom ved Taylorpolynomier beskrevet i kapitel \refname{ch:tp}
 Her er dog uendeligt mange led, hvilket skaber en bedre approksimation omkring værdien $a$. 
-Som det kort blev nævnt i kaptiel \refname{ch:tp} er det ikke altid at en taylor approksimation bliver bedre
-jo flere led der indgår, i denne sammenhæng er rækkens radius for konvergens en vigtig egenskab,
-fordi radiusen beskriver i hvilket område omkring $a$ approksimation bliver bedre, for hvert led.  % TODO: Beskriv radius for konvergens
-\begin{defn}
-    Med en taylor rækkes radius for konvergens menes, der for hvilket område af $x \in \mathbb{R}$ gælder:
+Som det kort blev nævnt i kaptiel \refname{ch:tp} er det dog ikke altid at en taylor approksimation bliver bedre
+når der indgår flere led, i denne sammenhæng er rækkens radiusen for konvergens en vigtig egenskab,
+fordi radiusen beskriver i hvilket område omkring $a$ approksimation bliver bedre, når flere led indgår.
+\begin{defn} % Definitionen på radius for konvergens
+    Med en Taylorrækkes radius for konvergens $R$ menes, der for hvilket del af $x \in \mathbb{R}$ gælder:
     \[
-        \lim_{n \rightarrow \infty} P_n(x) = f(x)
+        \lim_{n \rightarrow \infty} T_f(x) = f(x)
     \]
-    områdes opskrives ofte som $|x| \le a + r$.
+    området opskrives ofte ved $|x-a| < R$.
 \end{defn}
+Ved hjælp af $R$ kan taylorrækkens konvergens klassificeres indenfor 3 forskellige klasser.
+\begin{enumerate} % klassification af rækkens radius for konvergens.
+    \item $R = 0$ i så fald gælder $\lim_{n \rightarrow \infty} T_f(x) = f(x)$ kun i punktet $x = a$,
+    hvilket vil sige at taylorrækken slet ikke konvergere ud over punktet $x = a$
+    \item $R = \infty$ i så fald gælder $\lim_{n \rightarrow \infty} T_f(x) = f(x)$ for alle $x \in \mathbb{R}$,
+    hvilket vil sige at taylorrækken $T_f$ konvergere imod funktionen $f(x)$ for alle værdier.
+    \item $R = c$ hvor $c \in \mathbb{R}\setminus\{0\}$ i så fald konvergere taylorrækken kun i området $a - R < X < a + R$.
+\end{enumerate}
+For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet benyttes, ligesom det kan ved andre potens rækker.
+\begin{defn} % Definitation af koeficient kriteriet
+    For en potens række er radiusen for konvergens givet ved:
+    \[
+        \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{c_{n + 1}}{c_n} \right\lvert
+    \]
+    Hvor $c_n$ for taylorrækker er givet ved $c_n = n!^{-1}\frac{d^n f(a)}{dx^n}$.
+\end{defn} % TODO: BEVIS 
+
 
 % dette gælder dog ikke for alle funktioner, 
 % et simpelt eksempel kunne fx være funktionen $ln(x)$ omkring punktet $a=1$ 
-% hvor taylor polynomiet kun convergere imod $ln(x)$ hvor $x \in \mathbb{R} \setminus\{(0, 2)\} \land x > 0$. 
+% hvor Taylorpolynomiet kun convergere imod $ln(x)$ hvor $x \in \mathbb{R} \setminus\{(0, 2)\} \land x > 0$. 
 % Selv om man lader $n \rightarrow \infty$, hvis $x > 2$ gælder $P_n(x) \not \approx ln(x)$ dog stadig ikke.
-% Derudover bør det nævnes at hvis $n \rightarrow \infty$ gælder, kaldes Taylor polynomiet for en Taylor række, mere om dette i et senere afsnit. % TODO: Indsæt refference til afsnitet 
+% Derudover bør det nævnes at hvis $n \rightarrow \infty$ gælder, kaldes Taylorpolynomiet for en Taylorrække, mere om dette i et senere afsnit. % TODO: Indsæt refference til afsnitet 
 
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
 % Ratio test for Rækker: https://www.youtube.com/watch?v=av947KCWf2U&ab_channel=KhanAcademy 
-\subsection*{Eksempler på taylor Rækker og deres radius for konvergens} 
-% Taylor række for e^x TODO: beregn radius for konvergens
-Der ønskes en række for beregning af funktions værdien for funktionen $f(x) = e^x$ omkring $a = 0$.
-Da $\frac{d}{dx}(e^x) = e^x$ kan taylor rækken opskrives som:
+\subsection*{\textbf{Eksempel:} Maclaurin rækken for $e^x$ og dens radius for konvergens} 
+% Taylorrække for e^x TODO: beregn radius for konvergens
+Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
+Da $\frac{d}{dx}e^x = e^x$ kan Maclaurin rækken opskrives som:
 \[
-\sum^\infty_{i = 0} e^a \frac{(x-a)^i}{i!}
+T_{e^x}(x) = \sum^\infty_{n = 0} e^a \frac{(x-a)^n}{n!}
 \]
-og da $a = 0$ kan rækken forsimples yderligere:
+Da der er tale om en Maclaurin række og $a = 0$ derfor må gælde kan rækken forsimples yderligere:
 \[
-\sum^\infty_{i = 0} \frac{x^i}{i!}  
+T_{e^x}(x) = \sum^\infty_{n = 0} \frac{x^n}{n!}  
 \]
-Hvis det antages at rækkens radius for konvergens er $\infty$ kan følgende udtryk opstilles for at beregne $e^x$ for $x \in \mathbb{R}$
-% TODO: Kan man antage at radiusen for konvergens er $\infty$
+Herefter beregnes rækkens radius for konvergens:
+\[
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}\frac{d^{n+1} f(a)}{dx^{n+1}}}{n!^{-1}\frac{d^n f(a)}{dx^n}} \right\lvert
+    = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{1}{(n + 1)!}e^a}{\frac{1}{n!}e^a} \right\lvert 
+    = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{1}{(n + 1)!}}{\frac{1}{n!}} \right\lvert
+\]
+Der ses bort fra den absolutte værdi fordi $(n + 1)! > n! > 0$:
+\[
+    \frac{1}{R}= \lim_{n \rightarrow \infty} \frac{n!}{(n + 1)!} 
+    = \lim_{n \rightarrow \infty} \frac{n \times (n-1) \times \ldots \times 2 \times 1}{(n + 1) \times n \times (n-1) \times \ldots \times 2 \times 1}
+    = \lim_{n \rightarrow \infty} \frac{1}{n + 1}
+\]
+Og da $n \rightarrow \infty$ må følgende gælde: $\frac{1}{R} = \frac{1}{\infty} \Leftrightarrow R = \infty$ rækken konvergere altså for alle $x \in \mathbb{R}$.
+Derved kan følgende udtryk opstilles:
 \[
 e^x = \sum^\infty_{i = 0} \frac{x^i}{i!}  
 \]
-\subsection*{Konvergens radius for Taylor Rækker} % Taylor række for ln(x)
-Det er dog ikke altid at taylor rækken convergere imod $f(x)$ for alle $x \in D(f(x))$ når $n \rightarrow \infty$,
+\subsection*{\textbf{Eksempel:} Maclaurin rækken for $ln(x)$ } % Taylorrække for ln(x)
+Det er dog ikke altid at Taylorrækken convergere imod $f(x)$ for alle $x \in D(f(x))$ når $n \rightarrow \infty$,
 et eksempel $ln(x)$ blev bl.a. nævnt i kapitel \ref{ch:ItTP} 
 
 
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
 
-% Taylor Rækker
+% Taylorrækker
