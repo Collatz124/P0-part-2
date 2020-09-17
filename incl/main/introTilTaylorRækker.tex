@@ -4,16 +4,43 @@ En Taylorrække er en type potensrække, som kan bruges til at approksimere funk
 \begin{defn}
     En Taylorrække $T_f(x)$ for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
     \[
-        T_f(x) = \sum^{\infty}_{n=0} f^n(a) \frac{(x-a)^{n}}{n!} = f(a) + f'(a) \frac{(x-a)^{1}}{1!} + 
-        f''(a) \frac{(x-a)^{2}}{2!} + \ldots
+        T_f(x) = \sum^{\infty}_{n=0} \frac{f^{(n)}(a)}{n!} (x-a)^{n}
+        = f(a) + \frac{f'(a)}{1!}(x-a)^{1} + \frac{f''(a)}{2!}(x-a)^{2} + \ldots
     \]
     Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurinrække.
 \end{defn}
 \label{def:taylorrække}
-Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$ det vil sige
-$T_f^{(n)}(a) = f^{(n)}(a)$  % TODO: Bevis at T^n (x) = f^n (x)
+Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$, 
+og at dette vil skabe en god approksimation omkring punktet $a$. 
+\begin{thm} % TODO: Ret bevis og sætning
+    Taylorrækkens $n$'te afledte har samme værdi som funktionens $n$'te afledte i punktet $a$, 
+    det vil sige: $T_f^{(n)}(a) = f^{(n)} (a)$
+\end{thm}
 \begin{proof}
-    Bevis for x
+    lad Taylorrækken $T_f(x)$ være givet for funktionen $f(x)$: 
+    \[
+        T_f(x) = \sum^{\infty}_{n=0} \frac{f^{(n)}(a)}{n!} (x-a)^{n}
+        = f(a) + \frac{f'(a)}{1!}(x-a)^{1} + \frac{f''(a)}{2!}(x-a)^{2} + \ldots
+    \]
+    Når rækken differenceres $n$ gange, forsvinder ledende op til $n$, da 
+    \[
+        \frac{d}{dx} \frac{f^{(n - 1)}(a)}{(n-1)!} (x-a)^{(n-1)} = \frac{f^{(n - 1)}(a)}{(n-2)!} (x-a)^{(n-2)} 
+    \]
+    hvis der differenceres $n - 1$ gange endes der altså med: 
+    \[
+        \frac{f^{(n - 1)}(a)}{(0)!} (x-a)^{0} = f^{(n - 1)}(a)
+    \]
+    Der differenceres en sidste gang $\frac{d}{dx} f^{(n - 1)}(a) = 0$ ledende, før led nummer $n$ forsvinder altså.
+    Derved opnåes følgende:
+    \[
+        T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{(n+1)!}(x-a)^{(n+1)} + \frac{f^{n + 2}(a)}{(n+2)!}(x-a)^{(n+2)} + \ldots
+    \]
+    Herefter indsættes $x = a$:
+    \[
+        T_f^{n}(a) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{(n+1)!}(a-a)^{(n+1)} + \frac{f^{n + 2}(a)}{(n+2)!}(a-a)^{(n+2)} + \ldots
+        = f^{(n)}(a)
+    \]
+    Derved må $T_f^{(n)}(a) = f^{(n)}(a)$
 \end{proof}
 Selvom en taylorrække normalt approksimere en funktion relativt præcist, kan det ske at
 approksimationen kun er god indenfor et interval af $D(f)$. Dette beskrives bl.a. ved hjælp af rækkens
