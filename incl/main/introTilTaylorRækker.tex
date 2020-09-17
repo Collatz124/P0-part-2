@@ -1,28 +1,29 @@
-\chapter{Introduktion til Taylorrækker} % TODO: erstat $d^nf(a) / dx^n$ med $f^n(a)$
+\chapter{Introduktion til Taylorrækker}
 \label{ch:tr}
-Hvis Taylorpolynomiet indeholder udendeligt mange led, 
-kalder man det for en Taylorrække i stedet for et polynomiem. 
+En Taylorrække er en type potensrække, som kan bruges til at approksimere funktioner.
 \begin{defn}
     En Taylorrække $T_f(x)$ for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
     \[
         T_f(x) = \sum^{\infty}_{n=0} f^n(a) \frac{(x-a)^{n}}{n!} = f(a) + f'(a) \frac{(x-a)^{1}}{1!} + 
         f''(a) \frac{(x-a)^{2}}{2!} + \ldots
     \]
-    Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurin række.
+    Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurinrække.
 \end{defn}
 \label{def:taylorrække}
-Idéen med at de afledte af Taylorrækken og for funktionen er de samme i punktet $a$ 
-ses igen her ligesom ved Taylorpolynomier beskrevet i kapitel \refname{ch:tp}
-Her er dog uendeligt mange led, hvilket skaber en bedre approksimation omkring værdien $a$. 
-Som det kort blev nævnt i kaptiel \refname{ch:tp} er det dog ikke altid at en taylor approksimation bliver bedre
-når der indgår flere led, i denne sammenhæng er rækkens radiusen for konvergens en vigtig egenskab,
-fordi radiusen beskriver i hvilket område omkring $a$ approksimation bliver bedre, når flere led indgår.
+Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$ det vil sige
+$T_f^{(n)}(a) = f^{(n)}(a)$  % TODO: Bevis at T^n (x) = f^n (x)
+\begin{proof}
+    Bevis for x
+\end{proof}
+Selvom en taylorrække normalt approksimere en funktion relativt præcist, kan det ske at
+approksimationen kun er god indenfor et interval af $D(f)$. Dette beskrives bl.a. ved hjælp af rækkens
+radius for konvergens:
 \begin{defn} % Definitionen på radius for konvergens
-    Med en Taylorrækkes radius for konvergens $R$ menes, der for hvilket del af $x \in \mathbb{R}$ gælder:
+    Med en Taylorrækkes radius for konvergens $R$ menes, der for hvilket del af $D(f)$ gælder:
     \[
         \lim_{n \rightarrow \infty} T_f(x) = f(x)
     \]
-    området opskrives ofte ved $|x-a| < R$.
+    området opskrives ofte ved $|x-a| < R$ eller $a - R < x < a + R$.
 \end{defn}
 Ved hjælp af $R$ kan taylorrækkens konvergens klassificeres indenfor 3 forskellige klasser.
 \begin{enumerate} % klassification af rækkens radius for konvergens.
@@ -39,8 +40,8 @@ For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet be
         \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{c_{n + 1}}{c_n} \right\lvert
     \]
     Hvor $c_n$ for taylorrækker er givet ved $c_n = \dfrac{f^n(a)}{n!}$.
-\end{defn} % TODO: BEVIS 
-
+\end{defn} % https://blogs.ubc.ca/infiniteseriesmodule/appendices/proof-of-the-ratio-test/proof-of-the-ratio-test/
+% TODO: Bevis
 
 % dette gælder dog ikke for alle funktioner, 
 % et simpelt eksempel kunne fx være funktionen $ln(x)$ omkring punktet $a=1$ 
