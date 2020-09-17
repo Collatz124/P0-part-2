@@ -95,6 +95,11 @@ Nu beregnes Taylorrækkens radius for konvergens: % TODO: Lav det her
     \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}f^{(n+1)}(a)}{n!^{-1}f^n(a)} \right\lvert
     = \left\lvert \frac{\frac{(n+1) \cdot (-1)^{(n + 2)}}{(n+1)!}}{\frac{n \cdot (-1)^{(n + 1)}}{n!}} \right\lvert
 \]
+Fordi den absolutte værdi tages kan $-1^{(n+2)}$ og $-1^{(n + 1)}$ slettes fra tæller og nævner,
+fordi den ene vil være -1 og den anden vil være 1.
+\[
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{(n+1)}{(n+1)!}}{\frac{n}{n!}} \right\lvert
+\]
 % Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
 
 % Taylorrækker
