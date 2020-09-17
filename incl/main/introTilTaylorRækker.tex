@@ -2,6 +2,7 @@
 \label{ch:tr}
 En Taylorrække er en type potensrække, som kan bruges til at approksimere funktioner.
 \begin{defn}
+    \textbf{Taylorrækker}\\
     En Taylorrække $T_f(x)$ for den kontinuere funktion $f(x)$ omkring værdien $a$ er givet ved den uendelige sum:
     \[
         T_f(x) = \sum^{\infty}_{n=0} \frac{f^{(n)}(a)}{n!} (x-a)^{n}
@@ -32,22 +33,25 @@ og at dette vil skabe en god approksimation omkring punktet $a$.
         T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
     \]
     Da de afledte skal være ens i punktet $a$ indsættes $x = a$:
-    \[
-        T_f^{n}(a) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots
-        = f^{(n)}(a)
-    \]
+    \begin{align*}
+        T_f^{n}(a) &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots \\
+                   &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(0)^{1} + \frac{f^{(n + 2)}(a)}{2!}(0)^{2} + \ldots \\
+                   &= f^{(n)}(a)        
+    \end{align*}
     Derved må $T_f^{(n)}(a) = f^{(n)}(a)$
 \end{proof}
 Selvom en taylorrække normalt approksimere en funktion relativt præcist, kan det ske at
 approksimationen kun er god indenfor et interval af $D(f)$. Dette beskrives bl.a. ved hjælp af rækkens
 radius for konvergens:
 \begin{defn} % Definitionen på radius for konvergens
-    Med en Taylorrækkes radius for konvergens $R$ menes, der for hvilket del af $D(f)$ gælder:
+    \textbf{Radius for konvergens}\\
+    Med en Taylorrækkes radius for konvergens $R$ menes, der for hvilken del af $D(f)$ følgende gælder:
     \[
         \lim_{n \rightarrow \infty} T_f(x) = f(x)
     \]
     området opskrives ofte ved $|x-a| < R$ eller $a - R < x < a + R$.
 \end{defn}
+\label{def:radiusForKonvergens}
 Ved hjælp af $R$ kan taylorrækkens konvergens klassificeres indenfor 3 forskellige klasser.
 \begin{enumerate} % klassification af rækkens radius for konvergens.
     \item $R = 0$ i så fald gælder $\lim_{n \rightarrow \infty} T_f(x) = f(x)$ kun i punktet $x = a$,
@@ -58,15 +62,15 @@ Ved hjælp af $R$ kan taylorrækkens konvergens klassificeres indenfor 3 forskel
 \end{enumerate}
 For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet benyttes, ligesom det kan ved andre potens rækker.
 \begin{defn} % Definitation af koeficient kriteriet
-    For en potens række er radiusen for konvergens givet ved:
+    \textbf{Koeficient kriteriet}\\For en potens række er radiusen for konvergens givet ved:
     \[
         \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{c_{n + 1}}{c_n} \right\lvert
     \]
     Hvor $c_n$ for taylorrækker er givet ved $c_n = \dfrac{f^n(a)}{n!}$.
 \end{defn} % https://blogs.ubc.ca/infiniteseriesmodule/appendices/proof-of-the-ratio-test/proof-of-the-ratio-test/
-% TODO: Bevis
+\label{def:koeficientKriteriet}
+% TODO: Bevis´https://users.math.msu.edu/users/gnagy/teaching/12-spring/mth133/L30-133.pdf 
 
-% Ratio test for Rækker: https://www.youtube.com/watch?v=av947KCWf2U&ab_channel=KhanAcademy 
 \subsection*{\textbf{Eksempel:} Maclaurin rækken for $e^x$ og dens radius for konvergens} 
 Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
 Da $\frac{d}{dx}e^x = e^x$ kan Maclaurin rækken opskrives som:
