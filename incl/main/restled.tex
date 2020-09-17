@@ -4,35 +4,81 @@ Når man benytter sig af Taylorpolynomier, er det for at approksimere en funktio
 
 \section{Restleddets grundlæggende principper}
 \begin{defn}
-	I et $n$'tegradspolynomium, $P_n(x)$, kan restleddet, $R_n(x)$, beskrives som 			forskellem mellem funktionen, $f(x)$ som $P_n(x)$ approksimerer, og 		$P_n(x)$.\
+	I et $n$'tegradspolynomium, $P_n(x)$, kan restleddet, $R_n(x)$, beskrives som 			forskellem mellem funktionen, $f(x)$ som $P_n(x)$ approksimerer, og 		$P_n(x)$ \citep{calc_et}.\
 	\begin{equation*}
 		R_n(x)=|f(x)-P_n(x)|
 	\end{equation*}
 \end{defn}
 Restleddet kan også beskrives på følgende møde:
 \begin{equation}
-	R_n(x)=\frac{f^{(n+1)}(u)}{(n+1)!}(x-a)^{n+1},
+	R_n(x)=\frac{f^{(n+1)}(s)}{(n+1)!}(x-a)^{n+1},
 \end{equation}
-hvor u er et tal mellem x og a. %plagiat?
-\
-Man kender sjældent værdien af u, så man kan altså ikke nødvendigvis finde ud af præcis hvor stor afvigelsen er.\\
-Man kan dog ofte finde ud af en grænse for, hvor stor restleddet kan være. Med andre ord, kan finde en værdi af $\psi$, der opfylder
+hvor s er et bestemt tal mellem x og a. %plagiat?
+Værdien af s kan umiddelbart ikke findes, men man kan dog ofte finde en grænse for, hvor stort restleddet kan være; man kan finde en værdi af $\psi$, der opfylder
 \begin{equation}
-	|R_n(x)|\leq \psi
+\label{eq: rest}
+	R_n(x)\leq \psi
 \end{equation}
 Når man har fundet ud af, at fejlen ikke kan være større end $\psi$, kan man fastlægge et interval 
 \begin{equation*}
 [P_n(x)-\psi,P_n(x)+\psi],
 \end{equation*}
-hvori $f(x)$ er indeholdt. I næste afsnit vil et par eksempler på, hvordan dette kan se ud for nogle bestemte funktioner, figurere.\\
+hvori $f(x)$ derfor må være indeholdt. I næste afsnit vil et par eksempler på, hvordan dette kan se ud for nogle bestemte funktioner, figurere.\\
 Når man sætter restleddet sammen med teorien for Taylor-polynomier, får man Taylors sætning:
 
 
 \section{Eksempler på anvendelse af restled}
 \subsection*{Restleddet anvendt på approksimation af $\sin(x)$}
-Vi vil her gennemgå, hvordan man kan approksimere en af de vigtigste konstanter i matematikkens verden, $\sin(\frac{\pi}{2})=1$, ved hjælp af Taylors sætning. Det er måske ikke det mest interresante eksempel, eftersom konstanten 1 er et ret så rationelt tal. Dog kan anvendelsen af restleddet tydeligt demonstreres med dette eksempel.
-Som sagt, vil vi gerne approximere $\sin(\frac{\pi}{2})$, og dette gøres ved hjælp af et Maclaurin-polynomium for $\sin(x)$. Mere specifikt benytter vi et Maclaurin-polynomium af tredje orden.
+Vi vil her gennemgå, hvordan man kan approksimere $\sin(\frac{3}{2})$, ved hjælp af Taylors sætning. Dette gøres ved hjælp af et Maclaurin-polynomium for $\sin(x)$. Mere specifikt benytter vi et Maclaurin-polynomium af tredje orden.
 Dette findes ved hjælp af formlen fra \ref{def:taylorPolynomium}, hvor $N=3$ og $a=0$:
-\begin{equation}
-	P_3=\sum^{3}_{n=0}\frac{x \cdot f^n(0)}{n!}
-\end{equation}
+
+\begin{align}
+	P_3(x)&=\sum^{3}_{n=0}\frac{x^n \cdot f^n(0)}{n!} \\
+	&=\frac{f(0)}{0!} \cdot x^0 + \frac{f'(0)}{1!} \cdot x^1 + \frac{f''(0)}{2!} \cdot x^2 + \frac{f'''(0)}{3!} \cdot x^3 \\
+	&=f(0) + f'(0) \cdot x^1 + \frac{f''(0)}{2} \cdot x^2 + \frac{f'''(0)}{6} \cdot x^3	
+\end{align}
+
+$f(x)=\sin(x)$ indsættes
+
+\begin{align}
+	P_3(x)&=\sin(0) + \cos(0) \cdot x - \frac{\sin(0)}{2} \cdot x^2 - \frac{\cos(0)}{6} \cdot x^3 \\
+	&=x-\frac{1}{6} \cdot x^3
+\end{align}
+
+Nu udregner vi vores approksimation af $\sin(\frac{3}{2})$
+
+\begin{align}
+	P_3(2)&=\frac{3}{2}-\frac{1}{6} \cdot \left(\frac{3}{2}\right)^3 \\
+	&=\frac{3}{2}-\frac{27}{48} \\
+	&=\frac{15}{16}\\
+	&\approx 0,938
+\end{align}
+
+Nu vil vi finde $\psi$ fra ligning \eqref{eq: rest}
+\begin{align*}
+	f^4(x)&=\sin(x) \\
+	f^4(s)&=\sin(s) \\\\
+	a<&s<x \\
+	\iff 0<&s<\frac{3}{2}<\frac{\pi}{2}
+\end{align*}
+
+
+
+Da $\sin(x)$ er voksende for $x \in [0,\frac{\pi}{2}]$, når $x$ vokser, må dette medføre, at
+\begin{align*}
+	\sin(s) < \sin\left(\frac{\pi}{2}\right)=1
+\end{align*}
+
+Da $R_n(x) \propto f^{(n+1)}(s)$, må følgende gælde (se ligning \eqref{eq: rest}):
+
+\begin{align}
+	R_3\left(\frac{3}{2}\right)<\frac{1}{4!} \cdot \left(\frac{3}{2}\right)^4&=\frac{1}{24} \cdot \frac{81}{16}=\frac{27}{128}
+\end{align}
+
+Dette vil sige, at værdien af $\sin\left(\frac{3}{2}\right)$ maksimalt kan afvige $\frac{27}{128}$ fra $\frac{15}{16}$, eller:
+\begin{equation*}
+	\sin\left(\frac{3}{2}\right) \in \left[\frac{15}{16}-\frac{27}{128}, \,\frac{15}{16}+\frac{27}{128}\right]=\left[\frac{93}{128}, \, \frac{147}{128}\right] \approx [0,727, \; 1,148]
+\end{equation*}
+
+Hvis man slår tabelværdien op, får man: $\sin\left(\frac{3}{2}\right)\approx 0,997$ \\
+Nogle ville så måske sige, at det fundne interval, hvori $\sin\left(\frac{3}{2}\right)$ befinder sig, er bredt i forhold til hvor tæt, den approksimerede værdi var. Ikke desto mindre, er det en valid måde at benytte restleddet på.
