@@ -9,35 +9,31 @@ En Taylorrække er en type potensrække, som kan bruges til at approksimere funk
     \]
     Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurinrække.
 \end{defn}
-\label{def:taylorrække}
-Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$, 
+\label{def:taylorrække} Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$, 
 og at dette vil skabe en god approksimation omkring punktet $a$. 
-\begin{thm} % TODO: Ret bevis og sætning
+\begin{thm}
     Taylorrækkens $n$'te afledte har samme værdi som funktionens $n$'te afledte i punktet $a$, 
     det vil sige: $T_f^{(n)}(a) = f^{(n)} (a)$
 \end{thm}
 \begin{proof}
+    % Viser det i den uendelige sum
     lad Taylorrækken $T_f(x)$ være givet for funktionen $f(x)$: 
     \[
         T_f(x) = \sum^{\infty}_{n=0} \frac{f^{(n)}(a)}{n!} (x-a)^{n}
         = f(a) + \frac{f'(a)}{1!}(x-a)^{1} + \frac{f''(a)}{2!}(x-a)^{2} + \ldots
     \]
-    Når rækken differenceres $n$ gange, forsvinder ledende op til $n$, da 
+    Når rækken differenceres i forhold til x, forsvinder det første led og de resterende led ændres i mønsteret: $\frac{d}{dx} \frac{f^{(n)}(a)}{n!} (x-a)^{n} = \frac{f^{(n)}(a)}{(n-1)!} (x-a)^{(n - 1)}$ % KILDE TIL BOGEN (SOM SIGER AT EN UENDELIG RÆKKE KAN DIFFERENCERES)
     \[
-        \frac{d}{dx} \frac{f^{(n - 1)}(a)}{(n-1)!} (x-a)^{(n-1)} = \frac{f^{(n - 1)}(a)}{(n-2)!} (x-a)^{(n-2)} 
+        T_f'(x) = \frac{f'(a)}{0!}(x-a)^0 + \frac{f''(a)}{1!}(x-a)^{1} + \ldots = f'(a) + \frac{f''(a)}{1!}(x-a)^{1} + \frac{f'''(a)}{2!}(x-a)^{2} + \ldots
     \]
-    hvis der differenceres $n - 1$ gange endes der altså med: 
+    Hvilket følger samme mønster som $T_f(x)$ hvis der ses bort fra de første afledte. % TODO: Omskriv
+    Når processen gentages $n$ gange opnåes følgende udtryk for $T_f^{(n)}(x)$:
     \[
-        \frac{f^{(n - 1)}(a)}{(0)!} (x-a)^{0} = f^{(n - 1)}(a)
+        T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
     \]
-    Der differenceres en sidste gang $\frac{d}{dx} f^{(n - 1)}(a) = 0$ ledende, før led nummer $n$ forsvinder altså.
-    Derved opnåes følgende:
+    Da de afledte skal være ens i punktet $a$ indsættes $x = a$:
     \[
-        T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{(n+1)!}(x-a)^{(n+1)} + \frac{f^{n + 2}(a)}{(n+2)!}(x-a)^{(n+2)} + \ldots
-    \]
-    Herefter indsættes $x = a$:
-    \[
-        T_f^{n}(a) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{(n+1)!}(a-a)^{(n+1)} + \frac{f^{n + 2}(a)}{(n+2)!}(a-a)^{(n+2)} + \ldots
+        T_f^{n}(a) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots
         = f^{(n)}(a)
     \]
     Derved må $T_f^{(n)}(a) = f^{(n)}(a)$
@@ -70,13 +66,6 @@ For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet be
 \end{defn} % https://blogs.ubc.ca/infiniteseriesmodule/appendices/proof-of-the-ratio-test/proof-of-the-ratio-test/
 % TODO: Bevis
 
-% dette gælder dog ikke for alle funktioner, 
-% et simpelt eksempel kunne fx være funktionen $ln(x)$ omkring punktet $a=1$ 
-% hvor Taylorpolynomiet kun convergere imod $ln(x)$ hvor $x \in \mathbb{R} \setminus\{(0, 2)\} \land x > 0$. 
-% Selv om man lader $n \rightarrow \infty$, hvis $x > 2$ gælder $P_n(x) \not \approx ln(x)$ dog stadig ikke.
-% Derudover bør det nævnes at hvis $n \rightarrow \infty$ gælder, kaldes Taylorpolynomiet for en Taylorrække, mere om dette i et senere afsnit. % TODO: Indsæt refference til afsnitet 
-
-% Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
 % Ratio test for Rækker: https://www.youtube.com/watch?v=av947KCWf2U&ab_channel=KhanAcademy 
 \subsection*{\textbf{Eksempel:} Maclaurin rækken for $e^x$ og dens radius for konvergens} 
 Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
