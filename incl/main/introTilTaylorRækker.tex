@@ -54,28 +54,26 @@ For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet be
 Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
 Da $\frac{d}{dx}e^x = e^x$ kan Maclaurin rækken opskrives som:
 \[
-T_{e^x}(x) = \sum^\infty_{n = 0} e^a \frac{(x-a)^n}{n!}
+    T_{e^x}(x) = \sum^\infty_{n = 0} \frac{e^a}{n!}(x-a)^n
 \]
 Da der er tale om en Maclaurin række og $a = 0$ derfor må gælde kan rækken forsimples yderligere:
 \[
-T_{e^x}(x) = \sum^\infty_{n = 0} \frac{x^n}{n!}  
+    T_{e^x}(x) = \sum^\infty_{n = 0} \frac{1}{n!}(x-a)^n
 \]
 Herefter beregnes rækkens radius for konvergens:
 \[
-    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}f^{(n+1)}(a)}{n!^{-1}f^n(a)} \right\lvert
-    = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{1}{(n + 1)!}e^a}{\frac{1}{n!}e^a} \right\lvert 
-    = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{1}{(n + 1)!}}{\frac{1}{n!}} \right\lvert
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}}{n!^{-1}} \right\lvert
 \]
 Der ses bort fra den absolutte værdi fordi $(n + 1)! > n! > 0$:
 \[
     \frac{1}{R}= \lim_{n \rightarrow \infty} \frac{n!}{(n + 1)!} 
     = \lim_{n \rightarrow \infty} \frac{n \cdot (n-1) \cdot \ldots \cdot 2 \cdot 1}{(n + 1) \cdot n \cdot (n-1) \cdot \ldots \cdot 2 \cdot 1}
-    = \lim_{n \rightarrow \infty} \frac{1}{n + 1}
+    = \lim_{n \rightarrow \infty} \frac{1}{n + 1} = 0
 \]
-Og da $n \rightarrow \infty$ må følgende gælde: $\frac{1}{R} = \frac{1}{\infty} \Leftrightarrow R = \infty$ rækken konvergere altså for alle $x \in \mathbb{R}$.
+Derfor må følgende gælde: $R = \infty$ rækken konvergere altså for alle $x \in \mathbb{R}$.
 Derved kan følgende udtryk opstilles:
 \[
-e^x = \sum^\infty_{n = 0} \frac{x^n}{n!}  
+    e^x = \sum^\infty_{n = 0} \frac{x^n}{n!}  
 \]
 \subsection*{\textbf{Eksempel:} Taylorrækken rækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
 Taylorrækken for $ln(x)$ er givet ved:
@@ -95,10 +93,10 @@ Nu beregnes Taylorrækkens radius for konvergens:
 \[
     \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{(-1)^{(n+2)}}{n+1}}{\frac{(-1)^{(n+1)}}{n}} \right\lvert
 \]
-Fordi den absolutte værdi tages, kan $-1^{(n+2)}$ og $-1^{(n + 1)}$ slettes fra tæller og nævner,
-fordi den ene vil være -1 og den anden vil være 1.
+Da både $\left\lvert -1^{(n+2)} \right\lvert = 1$ og $\left\lvert-1^{(n + 1)} \right\lvert = 1$ må gælde kan utrykket forsimples yderligere
 \[
     \frac{1}{R} = \lim_{n \rightarrow \infty} \frac{\frac{1}{n+1}}{\frac{1}{n}} = \lim_{n \rightarrow \infty} \frac{n}{n+1} = 1
 \]
-$\frac{1}{R} = 1 \Leftrightarrow R = 1$ Må gælde fordi både tæller og nævner går imod uendelig. derved konvergere Taylorrækken
-kun i området $a-R < x < a+R \Leftrightarrow 0 < x < 2$ derved kan følgende udtryk opstilles: $ln(x) = T_{ln}(x)$ hvor $ 0 < x < 2$
+$\frac{1}{R} = 1 \Leftrightarrow R = 1$ må gælde fordi både tæller og nævner går imod uendelig. 
+derved kan taylorrækkens konvergens område opskrives som $a-R < x < a+R \Leftrightarrow 0 < x < 2$ 
+derved kan følgende udtryk opstilles: $ln(x) = T_{ln}(x)$ hvor $ 0 < x < 2$
