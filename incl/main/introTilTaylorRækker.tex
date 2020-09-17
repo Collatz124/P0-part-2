@@ -80,26 +80,25 @@ e^x = \sum^\infty_{n = 0} \frac{x^n}{n!}
 \subsection*{\textbf{Eksempel:} Taylorrækken rækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
 Taylorrækken for $ln(x)$ er givet ved:
 \[
-    T_{ln}(x) = ln(a) + \frac{ln'(a)}{1!}(x-a)^1 + \frac{ln''(a)}{2!}(x-a)^2 + \ldots + \frac{ln^{(n)}(a)}{n!}(x - a)^n
+    T_{ln}(x) = ln(a) + \frac{ln'(a)}{1!}(x-a)^1 + \frac{ln''(a)}{2!}(x-a)^2 + \ldots
 \]
 Hvilket kan opskrives pænere som:
 \[
-    T_{ln}(x) = ln(a) + \sum^{\infty}_{n = 1} \frac{(-1)^{(n + 1)}}{n!} \frac{n}{a^{(n+1)}}(x-a)^n
+    T_{ln}(x) = ln(a) + \sum^{\infty}_{n = 1} \frac{(-1)^{(n+1)}}{n!} \cdot \frac{(n-1)!}{a^n} (x-a)^{n}
 \]
 $a = 1$ indsættes:
 \[
-    T_{ln}(x) = ln(1) + \sum^{\infty}_{n = 1} \frac{(-1)^{(n + 1)}}{n!} \frac{n}{1^{(n+1)}}(x-1)^n = \sum^{\infty}_{n = 1} \frac{n \cdot (-1)^{(n + 1)}}{n!} (x-1)^n
+    T_{ln}(x) = \sum^{\infty}_{n = 1} \frac{(-1)^{(n+1)}}{n!} \cdot \frac{(n-1)!}{1} (x-1)^{n}
+    = \sum^{\infty}_{n = 1} \frac{(-1)^{(n+1)}(x-1)^{n}}{n}
 \]
-Nu beregnes Taylorrækkens radius for konvergens: % TODO: Lav det her 
+Nu beregnes Taylorrækkens radius for konvergens: 
 \[
-    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{(n + 1)!^{-1}f^{(n+1)}(a)}{n!^{-1}f^n(a)} \right\lvert
-    = \left\lvert \frac{\frac{(n+1) \cdot (-1)^{(n + 2)}}{(n+1)!}}{\frac{n \cdot (-1)^{(n + 1)}}{n!}} \right\lvert
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{(-1)^{(n+2)}}{n+1}}{\frac{(-1)^{(n+1)}}{n}} \right\lvert
 \]
-Fordi den absolutte værdi tages kan $-1^{(n+2)}$ og $-1^{(n + 1)}$ slettes fra tæller og nævner,
+Fordi den absolutte værdi tages, kan $-1^{(n+2)}$ og $-1^{(n + 1)}$ slettes fra tæller og nævner,
 fordi den ene vil være -1 og den anden vil være 1.
 \[
-    \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{(n+1)}{(n+1)!}}{\frac{n}{n!}} \right\lvert
+    \frac{1}{R} = \lim_{n \rightarrow \infty} \frac{\frac{1}{n+1}}{\frac{1}{n}} = \lim_{n \rightarrow \infty} \frac{n}{n+1} = 1
 \]
-% Link til en artikel om ln(x): https://math.stackexchange.com/questions/409214/why-is-domain-of-convergence-of-taylor-rækkes-of-lnx-about-x-1-is-0-2
-
-% Taylorrækker
+$\frac{1}{R} = 1 \Leftrightarrow R = 1$ Må gælde fordi både tæller og nævner går imod uendelig. derved konvergere Taylorrækken
+kun i området $a-R < x < a+R \Leftrightarrow 0 < x < 2$ derved kan følgende udtryk opstilles: $ln(x) = T_{ln}(x)$ hvor $ 0 < x < 2$
