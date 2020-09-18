@@ -1,11 +1,39 @@
 
 \section{Eksempel}
-Som et eksempel vil vi finde restleddet i approksimationen for eksponentialfunktionen
+
+\section{Eksempel}
+Som et eksempel vil vi finde restleddet i approksimationen for eksponentialfunktionen.
 Vi har tidligere set at Taylor polynomiet for eksponentialfunktionen approksimeret i $x=0$ kan beskrives således:
 
 \[
-P_N(x)=\frac{x^{0}}{0!}+\frac{x^{1}}{1!}+..+\frac{x^{N-1}}{(N-1)!}\frac{x^{N}}{N!}
+P_N(x)=\sum^{N}_{n=0}\frac{x^{0}}{0!}+\frac{x^{1}}{1!}+..+\frac{x^{N-1}}{(N-1)!}\frac{x^{N}}{N!}
 \]
 
+Vi vælger at kigge på Taylor polynomiet hvor $N=2$:
 
+\[
+P_2(x)=\frac{x^{0}}{0!}+\frac{x^{1}}{1!}+\frac{x^{2}}{2!}=1+x+\frac{x^{2}}{2}
+\]
 
+Vi vælger x-værdien til at være $1$ og approksimerer:
+\[
+e^{1}=f(1)\approx P_{2}(1)=1+1+\frac{1^{2}}{2}=\frac{5}{2}=2.5
+\]
+
+\[
+e^{1}=2.718\approx 2.5
+\]
+
+Nu kan vi finde restleddet for approksimationen.
+Vi ved at $f'''(x)=e^{x}$ derfor ved vi også at $f'''(s)=e^{s}$ hvor $s$ er et tal mellem 0 og 1. Om $s-værdien$ kan vi altså sige at $0<s<1$ da $s<1$ må $e^{s}<e$ da $f'''(s)=e^{s}$ må $f'''(s)<e$.
+
+Restleddet for approksimationen af $e^{x}\approx P_n(x)$ kan beskrives som:
+\[
+R_n(x)={\frac{e^{s}}{(n+1)!}}\cdot x^{n+1}
+\]
+
+\[
+R_2(1)<\frac{e}{(2+1)!}\cdot1^{(2+1)}=\frac{e}{6}
+\]
+
+Vi ved nu at $f(1)$ ligger i intervallet $(2.5-\frac{e}{6} , 2.5+\frac{e}{6})$. Vi kan ikke sige hvad den eksakte værdi af restleddet er, da vi ikke kender den eksakte værdi af $s$.

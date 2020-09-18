@@ -11,6 +11,13 @@ approksimationen sker ved hjælp af et $n$'te grads polynomium. Se nedenstående
     hvor $n \in \mathbb{N}$
 \end{defn}
 \label{def:taylorPolynomium}
+Ovenstående kan også skrives som:
+    \[
+    P_n(x)=f(a)+\frac{d^1 f(a)}{dx^1} \frac{(x-a)^{1}}{1!}+\frac{d^2 f(a)}{dx^2} \frac{(x-a)^{2}}{2!}+...+\frac{d^n f(a)}{dx^n} \frac{(x-a)^{n}}{n!}
+    \]
+Hvis vi kigger på den første del i ovenstående: $P_1(x)=f(a)+\frac{d^1 f(a)}{dx^1}(x-a)$ kan vi se at når differentiationen af $f(a)$ bliver ganget ind i parentesen vil vi have et førstegradspolynomium. 
+Hvis vi derefter lægger den næste del til vil vi have et andengradspolynomium osv. 
+
 Idéen er at polynomiumets $n$'te afledte i $x = a$ bliver det samme som funktionens $n$'te afledte i $x = a$, 
 dette skaber en god approksimation omkring $x = a$, men garrentere ikke en god approksimation 
 for alle værdier i funktionens definitations mængde: $x \in D(f(x))$. Approksimation bliver dog ofte bedre jo 
