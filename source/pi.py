@@ -41,9 +41,9 @@ def plotDifference (xs: np.array, ys: np.array) -> None:
     # Labels:
     plt.title("Error with respect to n")
     plt.xlabel("n")
-    plt.ylabel("Abs(Error)")
+    plt.ylabel("Error")
     
     plt.show()
     
 approximateValues = intergrateTaylor((-1, 1), derivatives[:81], [*range(0, 81, 1)])
-plotDifference(np.arange(0, 80), abs(np.array([np.pi/2 for _ in range(80)]) - np.array(approximateValues)))
+plotDifference(np.arange(0, 80), np.array([np.pi/2 for _ in range(80)]) - np.array(approximateValues))
