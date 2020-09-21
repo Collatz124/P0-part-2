@@ -6,11 +6,11 @@
 
 % Dokumenttypen 'book' er valgt pga. dens mange fleksible indstillinger
 % Se https://tex.stackexchange.com/a/36989/118167
-\documentclass[11pt, a4paper, twoside, openright, danish]{book}
+\documentclass[11pt, a4paper, twoside, openright, danish, openany]{book}
 
 % Variabler, som bruges til automatisk at indsætte titel, forfattere, osv. på
 % forsiden og titelbladet.
-\def \projecttitle       {Taylor Polynomier}
+\def \projecttitle       {Taylorpolynomier}
 \def \projectsubtitle    {og approksimation af funktioner}
 \def \projecttheme       {Approksimation af funktioner}
 \def \projectdegree      {Matematik} 
@@ -18,10 +18,10 @@
 \def \projectnumber      {P0}
 \def \projectgroup       {B343}
 \def \projectauthors     {
-  Esben Bonnerup\\
-  Kamilla Mattrup\\
-  Mikkel Hviid\\
-  Martin Nørbjerg
+  Esben Hjort Bonnerup\\
+  Kamilla Kyndi Mattrup\\
+  Mikkel Hviid Thorn\\
+  Martin Sig Nørbjerg
   % ...
 }
 \def \projectsupervisors {
@@ -59,15 +59,15 @@
 \include{incl/main/Eksempel_1}
 \include{incl/main/restled_bevis}
 \include{incl/main/Eksempler_taylor}
-\include{incl/main/kode}
+
 % \include{incl/main/example2}
 % ...
 
 % Appendicer indsættes inde i en appendices-blok og bliver nummereret med
 % bogstaver i stedet for tal
 \begin{appendices}
-  % \include{incl/app/appendix1}
-  % \include{incl/app/appendix2}
+  \include{incl/app/afledteTilPi}
+  \include{incl/app/kildeKode}
   % ..
 \end{appendices}
 

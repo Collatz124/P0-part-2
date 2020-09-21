@@ -10,6 +10,7 @@ En Taylorrække er en type potensrække, som kan bruges til at approksimere funk
     \]
     Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurinrække.
 \end{defn}
+\section{Den grundlæggende idé med Taylorrækker}
 \label{def:taylorrække} Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$, 
 og at dette vil skabe en god approksimation omkring punktet $a$. 
 \begin{thm}
@@ -27,20 +28,20 @@ og at dette vil skabe en god approksimation omkring punktet $a$.
     \[
         T_f'(x) = \frac{f'(a)}{0!}(x-a)^0 + \frac{f''(a)}{1!}(x-a)^{1} + \ldots = f'(a) + \frac{f''(a)}{1!}(x-a)^{1} + \frac{f'''(a)}{2!}(x-a)^{2} + \ldots
     \]
-    Hvilket følger samme mønster som $T_f(x)$ hvis der ses bort fra de første afledte. % TODO: Omskriv
     Når processen gentages $n$ gange opnåes følgende udtryk for $T_f^{(n)}(x)$:
     \[
-        T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
+        T_f^{(n)}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
     \]
     Da de afledte skal være ens i punktet $a$ indsættes $x = a$:
     \begin{align*}
-        T_f^{n}(a) &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots \\
+        T_f^{(n)}(a) &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots \\
                    &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(0)^{1} + \frac{f^{(n + 2)}(a)}{2!}(0)^{2} + \ldots \\
                    &= f^{(n)}(a)        
     \end{align*}
     Derved må $T_f^{(n)}(a) = f^{(n)}(a)$
 \end{proof}
-Selvom en taylorrække normalt approksimere en funktion relativt præcist, kan det ske at
+\section{Radius for konvergens}
+Selvom en Taylorrække normalt approksimere en funktion relativt præcist, kan det ske at
 approksimationen kun er god indenfor et interval af $D(f)$. Dette beskrives bl.a. ved hjælp af rækkens
 radius for konvergens:
 \begin{defn} % Definitionen på radius for konvergens
@@ -52,32 +53,32 @@ radius for konvergens:
     området opskrives ofte ved $|x-a| < R$ eller $a - R < x < a + R$.
 \end{defn}
 \label{def:radiusForKonvergens}
-Ved hjælp af $R$ kan taylorrækkens konvergens klassificeres indenfor 3 forskellige klasser.
+Ved hjælp af $R$ kan Taylorrækkens konvergens klassificeres indenfor 3 forskellige klasser.
 \begin{enumerate} % klassification af rækkens radius for konvergens.
     \item $R = 0$ i så fald gælder $\lim_{n \rightarrow \infty} T_f(x) = f(x)$ kun i punktet $x = a$,
-    hvilket vil sige at taylorrækken slet ikke konvergere ud over punktet $x = a$
+    hvilket vil sige at Taylorrækken slet ikke konvergere ud over punktet $x = a$
     \item $R = \infty$ i så fald gælder $\lim_{n \rightarrow \infty} T_f(x) = f(x)$ for alle $x \in \mathbb{R}$,
-    hvilket vil sige at taylorrækken $T_f$ konvergere imod funktionen $f(x)$ for alle værdier.
-    \item $R = c$ hvor $c \in \mathbb{R}\setminus\{0\}$ i så fald konvergere taylorrækken kun i området $a - R < X < a + R$.
+    hvilket vil sige at Taylorrækken $T_f$ konvergere imod funktionen $f(x)$ for alle værdier.
+    \item $R = c$ hvor $c \in \mathbb{R}\setminus\{0\}$ i så fald konvergere Taylorrækken kun i området $a - R < x < a + R$.
 \end{enumerate}
-For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet benyttes, ligesom det kan ved andre potens rækker.
+For at finde konvergensradiusen for en Taylorrække kan koefficientkriteriet benyttes, ligesom det kan ved andre potensrækker.
 \begin{defn} % Definitation af koeficient kriteriet
-    \textbf{Koeficient kriteriet}\\For en potens række er radiusen for konvergens givet ved:
+    \textbf{Koeficientkriteriet}\\For en potensrække er radiusen for konvergens givet ved:
     \[
         \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{c_{n + 1}}{c_n} \right\lvert
     \]
-    Hvor $c_n$ for taylorrækker er givet ved $c_n = \dfrac{f^n(a)}{n!}$.
+    Hvor $c_n$ for Taylorrækker er givet ved $c_n = \dfrac{f^n(a)}{n!}$.
 \end{defn} % https://blogs.ubc.ca/infiniteseriesmodule/appendices/proof-of-the-ratio-test/proof-of-the-ratio-test/
 \label{def:koeficientKriteriet}
 % TODO: Bevis´https://users.math.msu.edu/users/gnagy/teaching/12-spring/mth133/L30-133.pdf 
-
-\subsection*{\textbf{Eksempel:} Maclaurin rækken for $e^x$ og dens radius for konvergens} 
-Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
-Da $\frac{d}{dx}e^x = e^x$ kan Maclaurin rækken opskrives som:
+\section{Eksempler}
+\subsection*{\textbf{Eksempel:} Maclaurinrækken for $e^x$ og dens radius for konvergens} 
+Der ønskes en Maclaurinrække for beregning af funktionsværdien for funktionen $f(x) = e^x$.
+Da $\dfrac{d}{dx}e^x = e^x$ kan Maclaurinrækken opskrives som:
 \[
     T_{e^x}(x) = \sum^\infty_{n = 0} \frac{e^a}{n!}(x-a)^n
 \]
-Da der er tale om en Maclaurin række og $a = 0$ derfor må gælde kan rækken forsimples yderligere:
+Da er tale om en Maclaurinrække, og $a = 0$ derfor må gælde, kan rækken forsimples yderligere:
 \[
     T_{e^x}(x) = \sum^\infty_{n = 0} \frac{1}{n!}(x-a)^n
 \]
@@ -96,7 +97,7 @@ Derved kan følgende udtryk opstilles:
 \[
     e^x = \sum^\infty_{n = 0} \frac{x^n}{n!}  
 \]
-\subsection*{\textbf{Eksempel:} Taylorrækken rækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
+\subsection*{\textbf{Eksempel:} Taylorrækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
 Taylorrækken for $ln(x)$ er givet ved:
 \[
     T_{ln}(x) = ln(a) + \frac{ln'(a)}{1!}(x-a)^1 + \frac{ln''(a)}{2!}(x-a)^2 + \ldots
@@ -114,10 +115,10 @@ Nu beregnes Taylorrækkens radius for konvergens:
 \[
     \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{(-1)^{(n+2)}}{n+1}}{\frac{(-1)^{(n+1)}}{n}} \right\lvert
 \]
-Da både $\left\lvert -1^{(n+2)} \right\lvert = 1$ og $\left\lvert-1^{(n + 1)} \right\lvert = 1$ må gælde kan utrykket forsimples yderligere
+Da både $\left\lvert -1^{(n+2)} \right\lvert = 1$ og $\left\lvert-1^{(n + 1)} \right\lvert = 1$ må gælde kan utrykket forsimples yderligere da den absolute værdi kan ophæves
 \[
     \frac{1}{R} = \lim_{n \rightarrow \infty} \frac{\frac{1}{n+1}}{\frac{1}{n}} = \lim_{n \rightarrow \infty} \frac{n}{n+1} = 1
 \]
 $\frac{1}{R} = 1 \Leftrightarrow R = 1$ må gælde fordi både tæller og nævner går imod uendelig. 
-derved kan taylorrækkens konvergens område opskrives som $a-R < x < a+R \Leftrightarrow 0 < x < 2$ 
+derved kan Taylorrækkens konvergens område opskrives som $a-R < x < a+R \Leftrightarrow 0 < x < 2$ 
 derved kan følgende udtryk opstilles: $ln(x) = T_{ln}(x)$ hvor $ 0 < x < 2$
