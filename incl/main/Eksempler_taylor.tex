@@ -6,7 +6,7 @@ Når man udleder en Taylorrække er det værd at tænke på, hvilken $a$-værdi 
 f(x) &= \sin(x) \\
 f'(x) &= \cos(x) \\
 f''(x) &= -\sin(x) \\
-f'''(x) &= -\cos(x) \\
+f^{(3)}(x) &= -\cos(x) \\
 \end{align*}
 Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\sin(x)$ og $\cos(x)$. Hvis man ser på enhedscirklen, så vil funktionerne alle give heltal for hver kvarte omgang, hvilket svarer værdier af $1/2\pi$ ganget med et heltal $z$, hvor $z\in\mathbb{Z}$. Hvis $a=1/2\pi z$, så giver $\sin(x)$ og dens afledte pæne værdier i form af heltallene $-1$, $0$ og $1$. Dog så vil Taylorrækken indeholde $\pi$ for alle $z \neq 0$, hvilket kan gøre udregninger senere svære. Derfor vælges $z=0$ og dermed $a=0$, hvilket giver følgende værdier for $\sin(x)$ og dens afledte;
 \begin{align*}
@@ -75,10 +75,10 @@ Dette er også Maclaurinrækken for $\sin(x)$, da $c=0$. Med rækken kan man dan
 Maclaurinpolynomiet af femte orden kan med god tilnærmelse give værdier for $\sin(x)$ i intervallet $[-\pi /2; \pi /2]$, hvor den absolutte værdi af restleddet maksimalt giver $\left\lvert R_5(\pi/2) \right\lvert = \pi^6/{(6! \cdot 2^6)} = \pi^6/{46080}$. Intervallet dækker en halv svingning, og siden $sin(x)$ svinger harmonisk, så kan man approksimere værdier for $\sin(x)$, der er udenfor intervallet ved at anvende en korresponderende værdi indenfor intervallet. Eksempelvis, så kan man approksimere værdien af $\sin(t)$, hvor $t \in ]\pi/2;\pi]$, ved at udregne $p_5(\pi-t)$, da $\sin(t) = \sin(\pi-t)$. Der er dermed ikke grund til at fremstille et Maclaurinpolynomium af højere orden, da det vil gøre beregningerne sværere.
 %referer til eksempel af Esben
 \section{Taylorrække for $\cos(x)$}
-Hvis man derefter vil udlede en Taylorrække for $\cos(x)$ omkring samme $a$-værdi, så vil man kunne differentiere Taylorrækken for $\sin(x)$, da $\frac{\mathrm{d}}{\mathrm{d}x}\sin(x)=\cos(x)$. Hvis man differentiere Taylorrækken i ligning \ref{sinrække}, så får man rækken;
+Hvis man derefter vil udlede en Taylorrække for $\cos(x)$ omkring samme $a$-værdi, så vil man kunne differentiere Taylorrækken for $\sin(x)$, da $\frac{d}{dx}\sin(x)=\cos(x)$. Hvis man differentiere Taylorrækken i ligning \ref{sinrække}, så får man rækken;
 %man kan differentiere serien p.ga. teori 19 i calculus-bogen side 536-537 section 9.5
 \[
-\frac{\mathrm{d}}{\mathrm{d}x} \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
+\frac{d}{dx} \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
 =
 \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}
 \]
@@ -122,12 +122,12 @@ Dermed konvergerer denne række med $\cos(x)$ for alle $x$'er. Rækken er også 
 \begin{equation}\label{cosrække}
 \cos(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}
 \end{equation}
-Hvorimod man kunne udlede rækken ved at arbejde med $\cos(x)$, så gjorde de kendte relationer mellem $\cos(x)$ og $\sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $\sin(x)$ i ligning \ref{sinrække}. Maclaurinrækken  for $\sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $\cos(x)$, da $\int \sin(x) \mathrm{d} x=-\cos(x)+k$, hvor $k=-\cos(0)=-1$;
+Hvorimod man kunne udlede rækken ved at arbejde med $\cos(x)$, så gjorde de kendte relationer mellem $\cos(x)$ og $\sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $\sin(x)$ i ligning \ref{sinrække}. Maclaurinrækken  for $\sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $\cos(x)$, da $\int \sin(x) dx=-\cos(x)+k$, hvor $k=-\cos(0)=-1$;
 \begin{align*}
--\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \mathrm{d} x
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
 &=
 -\left(\sum_{n=1}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}-1\right) \\
--\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \mathrm{d} x
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
 &=
 \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \\
 \end{align*}
@@ -154,5 +154,51 @@ Hvis man tager delsumme af de to summe med samme øvre grænse, så for man en r
 	\caption{Approksimation af tangens omkring 0 via Maclaurinpolynomier af $\sin(x)$, noteret $p_n$, og $\cos(x)$, noteret $q_n$.}
  	\label{approks_tan}
 \end{figure}
-Approksimationen af tangens går igen tilbage til Maclaurinpolynomierne på \ref{taylor_sin}, da de rationelle funktioner på \ref{approks_tan} kan omformuleres til $R(x)=p_n(x)/p_n'(x)$. Omformuleringen giver også god mening i forhold til gennemgangen, hvor Maclaurinrækken for $\cos(x)$ blev udledt ved at differentiere Maclaurinrækken for $\sin(x)$.
+Approksimationen af tangens går igen tilbage til Maclaurinpolynomierne på \ref{taylor_sin}, da de rationelle funktioner på \ref{approks_tan} kan omformuleres til $R(x)=p_n(x)/p_n'(x)$. Omformuleringen giver også god mening i forhold til gennemgangen, hvor Maclaurinrækken for $\cos(x)$ blev udledt ved at differentiere Maclaurinrækken for $\sin(x)$, så $\tan(x)=\sin(x)/\frac{d}{dx}\sin(x)$. Derfor kan man med et Maclaurinpolynomium for $\sin(x)$ approksimere $\tan(x)$ omkring $0$.
 \section{Approksimation af $\pi$}
+Taylorpolynomier kan også anvendes, når man skal bestemme en værdi numerisk. En sådan værdi kunne være $\pi$, hvor man anvender, hvordan $\pi$ hænger sammen med andre størrelser i cirkler. En sammenhæng er arealet af en cirkel og radiussen; $A=\pi \cdot r^2$. Her kan man med fordel vælge $r=1$, så $A=\pi$ og cirklen har ligningen $x^2+y^2=1$. Ligningen kan ændres, så man får en funktion over en halvcirkel; $y=g(x)=\sqrt{1-x^2}$. Arealet under funktionen er $\pi/2$, men det er besværligt at integrere $g(x)$, derfor dannes et Taylorpolynomium over funktionen, og det integreres i stedet for $g(x)$. Til denne funktion og dens afledte findes de pæneste værdier, når $x=0$.
+???differentieringen ligger muligvis i appendiks???
+\begin{align*}
+g(0) &= 1 \\
+g'(0) &= 0 \\
+g''(0) &= -1 \\
+g^{(3)}(0) &= 0 \\
+g^{(4)}(0) &= -3 \\
+\end{align*}
+Dermed kan man lave et fjerdeordens Maclaurinpolynomium.
+\begin{align*}
+p_{4} (x) &= 1 + 0\cdot \frac{x}{1!} - 1\cdot \frac{x^2}{2!} + 0\cdot \frac{x^3}{3!} - 3\cdot \frac{x^4}{4!}
+\\
+p_{4} (x) &= 1-\frac{x^2}{2}-\frac{x^4}{8} \\
+\end{align*}
+Maclaurinpolynomiet integreres fra $x=-1$ til $x=1$, da funktion, og dermed halvcirklen, er defineret i intervallet [-1;1].
+\[
+\int_{-1}^{1} 1-\frac{x^2}{2}-\frac{x^4}{8} dx = \frac{97}{60} \approx 1,6167
+\]
+Resultatet var en tilnærmelse af $\pi/2$, så $2\cdot 1,6167 = 3,2334$ er en tilnærmelse af $\pi$. Tilnærmelsen er dog kun med $1$ ciffer og ingen korrekte decimaler. ???programmering???
+
+
+
+De afledte til $g(x)$, differentieret med kædereglen og produktreglen;
+\begin{align*}
+g(x) &= \sqrt{1-x^2} \\
+\end{align*}
+\begin{align*}
+g'(x) &= \frac{1}{2\sqrt{1-x^2}} (-2x)\\
+&= \frac{-x}{\sqrt{1-x^2}} \\
+\end{align*}
+\begin{align*}
+g''(x) &= \frac{-1}{\sqrt{1-x^2}} -x\left(\frac{-1}{2}\right)(-2x)\frac{1}{\sqrt{1-x^2}(1-x^2)}\\
+&= \frac{-1}{\sqrt{1-x^2}} -\frac{x^2}{\sqrt{1-x^2}(1-x^2)}\\
+&= \frac{-1}{\sqrt{1-x^2}}\left(\frac{x^2}{1-x^2}+1\right)\\
+\end{align*}
+\begin{align*}
+g^{(3)}(x) &= \frac{-x}{\sqrt{1-x^2}(1-x^2)}\left(\frac{x^2}{1-x^2}+1\right)- \frac{1}{\sqrt{1-x^2}}\left(\frac{2x}{1-x^2}+\frac{2x^3}{(1-x^2)^2}\right)\\
+&= \frac{-1}{\sqrt{1-x^2}}\left(\frac{x^3}{(1-x^2)^2}+\frac{x}{1-x^2}\right)- \frac{1}{\sqrt{1-x^2}}\left(\frac{2x}{1-x^2}+\frac{2x^3}{(1-x^2)^2}\right)\\
+&=\frac{-1}{\sqrt{1-x^2}}\left(\frac{3x^3}{(1-x^2)^2}+\frac{3x}{1-x^2}\right) \\
+\end{align*}
+\begin{align*}
+g^{(4)}(x) &= \frac{-x}{\sqrt{1-x^2}(1-x^2)}\left(\frac{3x^3}{(1-x^2)^2}+\frac{3x}{1-x^2}\right)-\frac{1}{\sqrt{1-x^2}}\left(\frac{9x^2}{(1-x^2)^2}+\frac{12x^4}{(1-x^2)^3}+\frac{3}{1-x^2}+\frac{6x^2}{(1-x^2)^2}\right) \\
+&= \frac{-1}{\sqrt{1-x^2}}\left(\frac{3x^4}{(1-x^2)^3}+\frac{3x^2}{(1-x^2)^2}\right)-\frac{1}{\sqrt{1-x^2}}\left(\frac{9x^2}{(1-x^2)^2}+\frac{12x^4}{(1-x^2)^3}+\frac{3}{1-x^2}+\frac{6x^2}{(1-x^2)^2}\right) \\
+&= \frac{-1}{\sqrt{1-x^2}} \left(\frac{15x^4}{(1-x^2)^3}+\frac{18x^2}{(1-x^2)^2}+\frac{3}{1-x^2}\right)\\
+\end{align*}
