@@ -62,7 +62,7 @@ Der er dog ingen garanti for, at rækken konvergerer med $\sin(x)$. Derfor teste
 =0 \\
 \end{align*}
 Det viser sig, at rækken konvergerer med $\sin(x)$ for alle $x$'er, da $R=\infty$, hvor $R$ er konvergensradiussen.
-\begin{equation}\label{sinrække}
+\begin{equation}\label{eq:sinrække}
 \sin(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
 \end{equation}
 Dette er også Maclaurinrækken for $\sin(x)$, da $c=0$. Med rækken kan man danne Maclaurinpolynomier, hvor der herunder er plottet nogle Maclaurinpolynomiet for at visualisere, hvordan de approksimerer $\sin(x)$;
@@ -70,12 +70,12 @@ Dette er også Maclaurinrækken for $\sin(x)$, da $c=0$. Med rækken kan man dan
 	\centering
 	\includegraphics[scale=0.4]{fig/img/taylor_sin}
 	\caption{Approksimation af sinus omkring 0 af Maclaurinpolynomier af første, tredje og femte orden}
- 	\label{taylor_sin}
+ 	\label{fig:taylor_sin}
 \end{figure}
 Maclaurinpolynomiet af femte orden kan med god tilnærmelse give værdier for $\sin(x)$ i intervallet $[-\pi /2; \pi /2]$, hvor den absolutte værdi af restleddet maksimalt giver $\left\lvert R_5(\pi/2) \right\lvert = \pi^6/{(6! \cdot 2^6)} = \pi^6/{46080}$. Intervallet dækker en halv svingning, og siden $sin(x)$ svinger harmonisk, så kan man approksimere værdier for $\sin(x)$, der er udenfor intervallet ved at anvende en korresponderende værdi indenfor intervallet. Eksempelvis, så kan man approksimere værdien af $\sin(t)$, hvor $t \in ]\pi/2;\pi]$, ved at udregne $p_5(\pi-t)$, da $\sin(t) = \sin(\pi-t)$. Der er dermed ikke grund til at fremstille et Maclaurinpolynomium af højere orden, da det vil gøre beregningerne sværere.
 %referer til eksempel af Esben
 \section{Taylorrække for $\cos(x)$}
-Hvis man derefter vil udlede en Taylorrække for $\cos(x)$ omkring samme $a$-værdi, så vil man kunne differentiere Taylorrækken for $\sin(x)$, da $\frac{d}{dx}\sin(x)=\cos(x)$. Hvis man differentiere Taylorrækken i ligning \ref{sinrække}, så får man rækken;
+Hvis man derefter vil udlede en Taylorrække for $\cos(x)$ omkring samme $a$-værdi, så vil man kunne differentiere Taylorrækken for $\sin(x)$, da $\frac{d}{dx}\sin(x)=\cos(x)$. Hvis man differentiere Taylorrækken i ligning \ref{eq:sinrække}, så får man rækken;
 %man kan differentiere serien p.ga. teori 19 i calculus-bogen side 536-537 section 9.5
 \[
 \frac{d}{dx} \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
@@ -119,10 +119,10 @@ Igen kan man anvende kvotientkriteriet på rækken for at se, om den konvergerer
 \end{align*}
 Dermed konvergerer denne række med $\cos(x)$ for alle $x$'er. Rækken er også kendt som Maclaurinrækken for $\cos(x)$;
 %evt. kilde til Maclaurinserien for cosinus i bogen side 544-545 section 9.6
-\begin{equation}\label{cosrække}
+\begin{equation}\label{eq:cosrække}
 \cos(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}
 \end{equation}
-Hvorimod man kunne udlede rækken ved at arbejde med $\cos(x)$, så gjorde de kendte relationer mellem $\cos(x)$ og $\sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $\sin(x)$ i ligning \ref{sinrække}. Maclaurinrækken  for $\sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $\cos(x)$, da $\int \sin(x) dx=-\cos(x)+k$, hvor $k=-\cos(0)=-1$;
+Hvorimod man kunne udlede rækken ved at arbejde med $\cos(x)$, så gjorde de kendte relationer mellem $\cos(x)$ og $\sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $\sin(x)$ i ligning \ref{eq:sinrække}. Maclaurinrækken  for $\sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $\cos(x)$, da $\int \sin(x) dx=-\cos(x)+k$, hvor $k=-\cos(0)=-1$;
 \begin{align*}
 -\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
 &=
@@ -136,12 +136,12 @@ Den samme række opstår, dermed kan man anvende Maclaurinrækken for $\sin(x)$ 
 	\centering
 	\includegraphics[scale=0.4]{fig/img/taylor_cos}
 	\caption{Approksimation af cosinus omkring 0 af Maclaurinpolynomier af nulte, anden og fjerde orden}
- 	\label{taylor_cos}
+ 	\label{fig:taylor_cos}
 \end{figure}
-Mangen til \ref{taylor_sin}, så ses det, at Maclaurinpolynomiet af fjerde orden giver en god tilnærmelse af $\cos(x)$ i intervallet $[-\pi /2; \pi /2]$, hvor den maksimale absolutte værdi af restleddet er $\left\lvert R_4(\pi/2) \right\lvert = \pi^5/(5! \cdot 2^5) = \pi^5/3840$. $[-\pi /2; \pi /2]$ dækker et udsving af $\cos(x)$, hvilket man kan anvende til at finde værdier for $\cos(x)$ udover intervallet, igen mangen til Maclaurinpolynomiet af femte orden for $\sin(x)$.
+Mangen til \ref{fig:taylor_sin}, så ses det, at Maclaurinpolynomiet af fjerde orden giver en god tilnærmelse af $\cos(x)$ i intervallet $[-\pi /2; \pi /2]$, hvor den maksimale absolutte værdi af restleddet er $\left\lvert R_4(\pi/2) \right\lvert = \pi^5/(5! \cdot 2^5) = \pi^5/3840$. $[-\pi /2; \pi /2]$ dækker et udsving af $\cos(x)$, hvilket man kan anvende til at finde værdier for $\cos(x)$ udover intervallet, igen mangen til Maclaurinpolynomiet af femte orden for $\sin(x)$.
 \section{Approksimation af $\tan(x)$}
-Til $\tan(x)$ kan man igen udnytte dens relation til de andre trigonometriske funktioner, hvor ligningen $\tan(x)=\frac{\sin(x)}{\cos(x)}$ er gældende. Hvis man derfor tager rækken i ligning \ref{sinrække} og dividerer med rækken i ligning \ref{cosrække}, så får man $\tan(x)$;
-\begin{equation}\label{tanbrøk}
+Til $\tan(x)$ kan man igen udnytte dens relation til de andre trigonometriske funktioner, hvor ligningen $\tan(x)=\frac{\sin(x)}{\cos(x)}$ er gældende. Hvis man derfor tager rækken i ligning \ref{eq:sinrække} og dividerer med rækken i ligning \ref{eq:cosrække}, så får man $\tan(x)$;
+\begin{equation}\label{eq:tanbrøk}
 \tan(x)
 =
 \frac{\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}}
@@ -152,9 +152,9 @@ Hvis man tager delsumme af de to summe med samme øvre grænse, så for man en r
 	\centering
 	\includegraphics[scale=0.4]{fig/img/approks_tan}
 	\caption{Approksimation af tangens omkring 0 via Maclaurinpolynomier af $\sin(x)$, noteret $p_n$, og $\cos(x)$, noteret $q_n$.}
- 	\label{approks_tan}
+ 	\label{fig:approks_tan}
 \end{figure}
-Approksimationen af tangens går igen tilbage til Maclaurinpolynomierne på \ref{taylor_sin}, da de rationelle funktioner på \ref{approks_tan} kan omformuleres til $R(x)=p_n(x)/p_n'(x)$. Omformuleringen giver også god mening i forhold til gennemgangen, hvor Maclaurinrækken for $\cos(x)$ blev udledt ved at differentiere Maclaurinrækken for $\sin(x)$, så $\tan(x)=\sin(x)/\frac{d}{dx}\sin(x)$. Derfor kan man med et Maclaurinpolynomium for $\sin(x)$ approksimere $\tan(x)$ omkring $0$.
+Approksimationen af tangens går igen tilbage til Maclaurinpolynomierne på \ref{fig:taylor_sin}, da de rationelle funktioner på \ref{fig:approks_tan} kan omformuleres til $R(x)=p_n(x)/p_n'(x)$. Omformuleringen giver også god mening i forhold til gennemgangen, hvor Maclaurinrækken for $\cos(x)$ blev udledt ved at differentiere Maclaurinrækken for $\sin(x)$, så $\tan(x)=\sin(x)/\frac{d}{dx}\sin(x)$. Derfor kan man med et Maclaurinpolynomium for $\sin(x)$ approksimere $\tan(x)$ omkring $0$.
 \section{Approksimation af $\pi$}
 Taylorpolynomier kan også anvendes, når man skal bestemme en værdi numerisk. En sådan værdi kunne være $\pi$, hvor man anvender, hvordan $\pi$ hænger sammen med andre størrelser i cirkler. En sammenhæng er arealet af en cirkel og radiussen; $A=\pi \cdot r^2$. Her kan man med fordel vælge $r=1$, så $A=\pi$ og cirklen har ligningen $x^2+y^2=1$. Ligningen kan ændres, så man får en funktion over en halvcirkel; $y=g(x)=\sqrt{1-x^2}$. Arealet under funktionen er $\pi/2$, men det er besværligt at integrere $g(x)$, derfor dannes et Taylorpolynomium over funktionen, og det integreres i stedet for $g(x)$. Til denne funktion og dens afledte findes de pæneste værdier, når $x=0$.
 ???differentieringen ligger muligvis i appendiks???
@@ -175,7 +175,7 @@ Maclaurinpolynomiet integreres fra $x=-1$ til $x=1$, da funktion, og dermed halv
 \[
 \int_{-1}^{1} 1-\frac{x^2}{2}-\frac{x^4}{8} dx = \frac{97}{60} \approx 1,6167
 \]
-Resultatet var en tilnærmelse af $\pi/2$, så $2\cdot 1,6167 = 3,2334$ er en tilnærmelse af $\pi$. Tilnærmelsen er dog kun med $1$ ciffer og ingen korrekte decimaler. ???programmering???
+Resultatet var en tilnærmelse af $\pi/2$, så $2\cdot 1,6167 = 3,2334$ er en tilnærmelse af $\pi$. Tilnærmelsen er dog kun med $1$ korrekt ciffer og ingen korrekte decimaler. ???programmering???
 
 
 
