@@ -175,30 +175,8 @@ Maclaurinpolynomiet integreres fra $x=-1$ til $x=1$, da funktion, og dermed halv
 \[
 \int_{-1}^{1} 1-\frac{x^2}{2}-\frac{x^4}{8} dx = \frac{97}{60} \approx 1,6167
 \]
-Resultatet var en tilnærmelse af $\pi/2$, så $2\cdot 1,6167 = 3,2334$ er en tilnærmelse af $\pi$. Tilnærmelsen er dog kun med $1$ korrekt ciffer og ingen korrekte decimaler. ???programmering???
-
-
-
-De afledte til $g(x)$, differentieret med kædereglen og produktreglen;
-\begin{align*}
-g(x) &= \sqrt{1-x^2} \\
-\end{align*}
-\begin{align*}
-g'(x) &= \frac{1}{2\sqrt{1-x^2}} (-2x)\\
-&= \frac{-x}{\sqrt{1-x^2}} \\
-\end{align*}
-\begin{align*}
-g''(x) &= \frac{-1}{\sqrt{1-x^2}} -x\left(\frac{-1}{2}\right)(-2x)\frac{1}{\sqrt{1-x^2}(1-x^2)}\\
-&= \frac{-1}{\sqrt{1-x^2}} -\frac{x^2}{\sqrt{1-x^2}(1-x^2)}\\
-&= \frac{-1}{\sqrt{1-x^2}}\left(\frac{x^2}{1-x^2}+1\right)\\
-\end{align*}
-\begin{align*}
-g^{(3)}(x) &= \frac{-x}{\sqrt{1-x^2}(1-x^2)}\left(\frac{x^2}{1-x^2}+1\right)- \frac{1}{\sqrt{1-x^2}}\left(\frac{2x}{1-x^2}+\frac{2x^3}{(1-x^2)^2}\right)\\
-&= \frac{-1}{\sqrt{1-x^2}}\left(\frac{x^3}{(1-x^2)^2}+\frac{x}{1-x^2}\right)- \frac{1}{\sqrt{1-x^2}}\left(\frac{2x}{1-x^2}+\frac{2x^3}{(1-x^2)^2}\right)\\
-&=\frac{-1}{\sqrt{1-x^2}}\left(\frac{3x^3}{(1-x^2)^2}+\frac{3x}{1-x^2}\right) \\
-\end{align*}
-\begin{align*}
-g^{(4)}(x) &= \frac{-x}{\sqrt{1-x^2}(1-x^2)}\left(\frac{3x^3}{(1-x^2)^2}+\frac{3x}{1-x^2}\right)-\frac{1}{\sqrt{1-x^2}}\left(\frac{9x^2}{(1-x^2)^2}+\frac{12x^4}{(1-x^2)^3}+\frac{3}{1-x^2}+\frac{6x^2}{(1-x^2)^2}\right) \\
-&= \frac{-1}{\sqrt{1-x^2}}\left(\frac{3x^4}{(1-x^2)^3}+\frac{3x^2}{(1-x^2)^2}\right)-\frac{1}{\sqrt{1-x^2}}\left(\frac{9x^2}{(1-x^2)^2}+\frac{12x^4}{(1-x^2)^3}+\frac{3}{1-x^2}+\frac{6x^2}{(1-x^2)^2}\right) \\
-&= \frac{-1}{\sqrt{1-x^2}} \left(\frac{15x^4}{(1-x^2)^3}+\frac{18x^2}{(1-x^2)^2}+\frac{3}{1-x^2}\right)\\
-\end{align*}
+Resultatet var en tilnærmelse af $\pi/2$, så $2\cdot 1,6167 = 3,2334$ er en tilnærmelse af $\pi$. Tilnærmelsen er dog kun med $1$ korrekt ciffer og ingen korrekte decimaler. 
+Hvis der ønskes en bedere approksimation bør antallet af led i taylor polynomiet stige, dette er 
+imidlertiddigt ikke særligt simpelt at lave i hånden da de afledte hurtigt vokser i komplexitet, % REFERE TIL APPENDIX
+derfor blev der udarbejdet et simpelt python program til beregningerne, 
+som kunne beregne de afledte op til $n$'te orden og derefter integrere taylor polynomiet:
