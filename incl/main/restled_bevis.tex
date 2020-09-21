@@ -1,0 +1,40 @@
+\subsection{Bevis for formlen for restleddet}
+Vi vil nu bevise, at restleddet for et $n$'te ordens Taylorpolynomium er givet ved formlen:
+\begin{equation}
+	R_n(x)=\frac{f^{n+1}(s)}{(n+1)!} \cdot (x-a)^{n+1}, \quad n \in \mathbb{N}_0
+\end{equation}
+
+Til at bevise dette, skal jeg bruge følgende lemmaer:
+\begin{lem}
+	\begin{equation*}
+		\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)},
+	\end{equation*}
+	Hvor $c$ er et tal mellem $a$ og $b$, $g'(c) \neq 0$, og $g(b) \neq g(a)$. For bevis, se \cite{calc_et}, side 138-144.
+\end{lem}
+\label{generel_mvs}
+
+\begin{lem}
+	Den $k$'te afledte af $R_n(x)$ er givet ved:
+	\begin{align*}
+		R_n^k(x)&=f^k(x)-f^k(a), \quad k \leq n, \quad k \in \mathbb{N}_0 \\
+		\implies R_n^k(a)&=0
+	\end{align*}	
+\end{lem}
+\label{rest_dif}
+
+\begin{lem}
+	\begin{align}
+		\frac{d^k}{dx^k}(x-a)^n&=\frac{n!}{(n-k)!}(x-a)^{(n-k)}, \quad k \leq n, \quad k \in \mathbb{N}_0 \\
+		\implies \frac{d^n}{dx^n}(x-a)^n&=n!
+	\end{align}
+\end{lem}
+\label{potens_dif}
+
+\begin{proof}
+\
+Vi kigger på følgende udtryk:
+\begin{equation}
+	\frac{R_n(x)}{(x-a)^{n+1}
+\end{equation}
+	
+\end{proof}
