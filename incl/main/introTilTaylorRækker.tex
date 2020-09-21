@@ -10,6 +10,7 @@ En Taylorrække er en type potensrække, som kan bruges til at approksimere funk
     \]
     Hvis $a = 0$ kaldes Taylorrækken i stedet for en Maclaurinrække.
 \end{defn}
+\section{Den grundlæggende idé med taylor rækker}
 \label{def:taylorrække} Idéen med Taylorrækker er at de afledte for rækken og for funktionen er den samme i punktet $a$, 
 og at dette vil skabe en god approksimation omkring punktet $a$. 
 \begin{thm}
@@ -27,7 +28,6 @@ og at dette vil skabe en god approksimation omkring punktet $a$.
     \[
         T_f'(x) = \frac{f'(a)}{0!}(x-a)^0 + \frac{f''(a)}{1!}(x-a)^{1} + \ldots = f'(a) + \frac{f''(a)}{1!}(x-a)^{1} + \frac{f'''(a)}{2!}(x-a)^{2} + \ldots
     \]
-    Hvilket følger samme mønster som $T_f(x)$ hvis der ses bort fra de første afledte. % TODO: Omskriv
     Når processen gentages $n$ gange opnåes følgende udtryk for $T_f^{(n)}(x)$:
     \[
         T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
@@ -40,6 +40,7 @@ og at dette vil skabe en god approksimation omkring punktet $a$.
     \end{align*}
     Derved må $T_f^{(n)}(a) = f^{(n)}(a)$
 \end{proof}
+\section{Radius for konvergens}
 Selvom en taylorrække normalt approksimere en funktion relativt præcist, kan det ske at
 approksimationen kun er god indenfor et interval af $D(f)$. Dette beskrives bl.a. ved hjælp af rækkens
 radius for konvergens:
@@ -70,7 +71,7 @@ For at finde konvergens radiusen for en taylorrække kan koeficient kriteriet be
 \end{defn} % https://blogs.ubc.ca/infiniteseriesmodule/appendices/proof-of-the-ratio-test/proof-of-the-ratio-test/
 \label{def:koeficientKriteriet}
 % TODO: Bevis´https://users.math.msu.edu/users/gnagy/teaching/12-spring/mth133/L30-133.pdf 
-
+\section{Eksempler}
 \subsection*{\textbf{Eksempel:} Maclaurin rækken for $e^x$ og dens radius for konvergens} 
 Der ønskes en Maclaurin række for beregning af funktions værdien for funktionen $f(x) = e^x$.
 Da $\frac{d}{dx}e^x = e^x$ kan Maclaurin rækken opskrives som:

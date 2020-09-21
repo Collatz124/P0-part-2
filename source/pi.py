@@ -39,8 +39,8 @@ def plotDifference (xs: np.array, ys: np.array) -> None:
     plt.style.use("ggplot")
     plt.plot(xs, ys)
     # Labels:
-    plt.title("Error with respect to n")
-    plt.xlabel("n")
+    plt.title("Error with respect to N")
+    plt.xlabel("N")
     plt.ylabel("Error")
     
     plt.show()
