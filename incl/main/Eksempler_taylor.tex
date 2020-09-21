@@ -30,35 +30,35 @@ Der er dog ingen garanti for, at rækken konvergerer med $\sin(x)$. Derfor teste
 \begin{align*}
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2(n+1)+1)!}x^{2(n+1)+1}}
-{\frac{(-1)^n}{(2n+1)!}x^{2n+1}} 
+\frac{\frac{(-1)^{n+1}}{(2(n+1)+1)!}}
+{\frac{(-1)^n}{(2n+1)!}} 
 \right\lvert
 &=
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2n+3)!}x^{2n+3}}
-{\frac{(-1)^n}{(2n+1)!}x^{2n+1}}
+\frac{\frac{(-1)^{n+1}}{(2n+3)!}}
+{\frac{(-1)^n}{(2n+1)!}}
 \right\lvert 
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+3)!} \left\lvert x^{2n+3} \right\lvert }
-{\frac{\left\lvert (-1)^n \right\lvert }{(2n+1)!} \left\lvert x^{2n+1} \right\lvert }
+\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+3)!}}
+{\frac{\left\lvert (-1)^n \right\lvert }{(2n+1)!}}
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{\left\lvert x^{2n+3} \right\lvert}{(2n+3)!}}
-{\frac{\left\lvert x^{2n+1} \right\lvert}{(2n+1)!} }
+\frac{\frac{1}{(2n+3)!}}
+{\frac{1}{(2n+1)!} }
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\left\lvert x^{2n+3} \right\lvert}{(2n+3)!}
+\frac{1}{(2n+3)!}
 \cdot
-\frac{(2n+1)!}{\left\lvert x^{2n+1} \right\lvert}
+\frac{(2n+1)!}{1}
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\left\lvert x^{2} \right\lvert}{(2n+3)(2n+2)}
+\frac{1}{(2n+3)(2n+2)}
 =0 \\
 \end{align*}
 Det viser sig, at rækken konvergerer med $\sin(x)$ for alle $x$'er, da $R=\infty$, hvor $R$ er konvergensradiussen.
@@ -86,35 +86,29 @@ Igen kan man anvende kvotientkriteriet på rækken for at se, om den konvergerer
 \begin{align*}
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2(n+1))!}x^{2(n+1)}}
-{\frac{(-1)^n}{(2n)!}x^{2n}} 
+\frac{\frac{(-1)^{n+1}}{(2(n+1))!}}
+{\frac{(-1)^n}{(2n)!}} 
 \right\lvert
 &=
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2n+2)!}x^{2n+2}}
-{\frac{(-1)^n}{(2n)!}x^{2n}}
+\frac{\frac{(-1)^{n+1}}{(2n+2)!}}
+{\frac{(-1)^n}{(2n)!}}
 \right\lvert 
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+2)!} \left\lvert x^{2n+2} \right\lvert }
-{\frac{\left\lvert (-1)^n \right\lvert }{(2n)!} \left\lvert x^{2n} \right\lvert }
+\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+2)!}}
+{\frac{\left\lvert (-1)^n \right\lvert }{(2n)!}}
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{\left\lvert x^{2n+2} \right\lvert}{(2n+2)!}}
-{\frac{\left\lvert x^{2n} \right\lvert}{(2n)!} }
+\frac{\frac{1}{(2n+2)!}}
+{\frac{1}{(2n)!} }
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\left\lvert x^{2n+2} \right\lvert}{(2n+2)!}
-\cdot
-\frac{(2n)!}{\left\lvert x^{2n} \right\lvert}
-\\
-&=
-\lim\limits_{n \to \infty}
-\frac{\left\lvert x^{2} \right\lvert}{(2n+2)(2n+1)}
+\frac{1}{(2n+2)(2n+1)}
 =0 \\
 \end{align*}
 Dermed konvergerer denne række med $\cos(x)$ for alle $x$'er. Rækken er også kendt som Maclaurinrækken for $\cos(x)$;
