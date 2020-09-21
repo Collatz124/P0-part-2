@@ -17,14 +17,14 @@ Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\si
 \end{align*}
 Taylorrækken for $\sin(x)$ omkring $0$ bliver derfor;
 \begin{align*}
-T_{sin} (x) &= 0+x+0 \cdot \frac{x^2}{2}-\frac{x^3}{3!}+0 \cdot \frac{x^4}{4!}+\frac{x^5}{5!}+... 
+T_{\sin} (x) &= 0+x+0 \cdot \frac{x^2}{2}-\frac{x^3}{3!}+0 \cdot \frac{x^4}{4!}+\frac{x^5}{5!}+... 
 \\
-T_{sin} (x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+... \\
+T_{\sin} (x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+... \\
 \end{align*}
 %kilde til ulige funktioners maclaurinrækker
-Siden $\sin(x)$ er en ulige funktion, da $\sin(x)=-sin(-x)$, så er $f^{n}(0)=0, \text{hvis} n \mod 2=0$. Dermed er det kun de led, hvor $x$ er opløftet i en ulige eksponent tilbage, hvor eksponenten kan udtrykkes som $2n+1$, for $n\in \mathbb{N}_0$. De resterende led skrifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative i rigtig rækkefølge. Dermed bliver summen for Taylorrækken for $\sin(x)$ omkring $0$;
+Siden $\sin(x)$ er en ulige funktion, da $\sin(x)=-\sin(-x)$, så er $f^{n}(0)=0$, hvis $n \mod 2=0$. Dermed er det kun de led, hvor $x$ er opløftet i en ulige eksponent tilbage, hvor eksponenten kan udtrykkes som $2n+1$, for $n\in \mathbb{N}_0$. De resterende led skrifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative i rigtig rækkefølge. Dermed bliver summen for Taylorrækken for $\sin(x)$ omkring $0$;
 \begin{align*}
-\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
+T_{\sin}(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
 \end{align*}
 Der er dog ingen garanti for, at rækken konvergerer med $\sin(x)$. Derfor testes kvotientkriteriet for rækken;
 \begin{align*}
@@ -61,7 +61,7 @@ Der er dog ingen garanti for, at rækken konvergerer med $\sin(x)$. Derfor teste
 \frac{1}{(2n+3)(2n+2)}
 =0 \\
 \end{align*}
-Det viser sig, at rækken konvergerer med $\sin(x)$ for alle $x$'er, da $R=\infty$, hvor $R$ er konvergensradiussen.
+Det viser sig, at rækken konvergerer med $\sin(x)$ for alle $x$'er, da $r=\infty$, hvor $r$ er konvergensradiussen.
 \begin{equation}\label{eq:sinrække}
 \sin(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
 \end{equation}
@@ -118,10 +118,9 @@ Dermed konvergerer denne række med $\cos(x)$ for alle $x$'er. Rækken er også 
 \end{equation}
 Hvorimod man kunne udlede rækken ved at arbejde med $\cos(x)$, så gjorde de kendte relationer mellem $\cos(x)$ og $\sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $\sin(x)$ i ligning \ref{eq:sinrække}. Maclaurinrækken  for $\sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $\cos(x)$, da $\int \sin(x) dx=-\cos(x)+k$, hvor $k=-\cos(0)=-1$;
 \begin{align*}
--\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1} dx
 &=
 -\left(\sum_{n=1}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}-1\right) \\
--\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
 &=
 \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \\
 \end{align*}
@@ -169,18 +168,18 @@ Maclaurinpolynomiet integreres fra $x=-1$ til $x=1$, da funktion, og dermed halv
 \int_{-1}^{1} 1-\frac{x^2}{2}-\frac{x^4}{8} dx = \frac{97}{60} \approx 1,6167
 \]
 Resultatet var en tilnærmelse af $\pi/2$, så $2\cdot 1,6167 = 3,2334$ er en tilnærmelse af $\pi$. Tilnærmelsen er dog kun med $1$ korrekt ciffer og ingen korrekte decimaler. 
-Hvis der ønskes en bedere approksimation bør antallet af led i taylor polynomiet stige, dette er 
-imidlertidigt ikke særligt simpelt at lave i hånden da de afledte hurtigt vokser i kompleksitet, 
+Hvis der ønskes en bedre approksimation bør antallet af led i Taylorpolynomiet stige, dette er 
+imidlertidligt ikke særligt simpelt at lave i hånden, da de afledte hurtigt vokser i kompleksitet, 
 se appendix (\ref{app:afledte}).  % REFERE TIL APPENDIX
 Derfor blev der udarbejdet et simpelt python program til beregningerne, 
-som kunne beregne de afledte op til $n$'te orden og derefter integrere taylor polynomiet:
+som kunne beregne de afledte op til $n$'te orden og derefter integrere Taylorpolynomiet:
 Kildekoden kan ses i appendix (\ref{app:kildeKode}). 
 Koden indeholder 2 hoved funktioner:
 \begin{itemize}
   \item "computeDerivatives" som beregner de afledte for funktionen $f(x)$ 
   i punktet $a$, dette sker ved hjælp af python pakken SymPy, herefter returneres disse som en liste af værdier.  
   \item "intergrateTaylor" som beregner værdien af intergralet imellem to endepunkter
-  og returnere værdierne for intergralet $\int_{-1}^1 P_N (x) dx$ ved specifike ordener $N$. 
+  og returnerer værdierne for intergralet $\int_{-1}^1 P_N (x) dx$ ved specifike ordener $N$. 
 \end{itemize}
 Når koden køres fås følgende værdier:
 \begin{table}[H]
