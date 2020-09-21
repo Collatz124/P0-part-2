@@ -1,14 +1,15 @@
 \chapter{Taylors sætning anvendt på trigonometriske funktioner og enhedscirklen}
-Dette kapitel vil vise, hvordan man anvender den før redegjort for teori på trigonometriske funktioner og enhedscirklen. Målet er at vise, hvordan man numerisk kan udregne værdier for $\sin(x)$, $\cos(x)$ og $\tan(x)$, samt hvordan man kan anvende enhedscirklen og Taylorpolynomier til at tilnærme sig $\pi$.
+Dette kapitel vil vise, hvordan man anvender den før redegjort for teori på trigonometriske funktioner og til at tilnærme sig $\pi$. 
+%Målet er at vise, hvordan man numerisk kan udregne værdier for $\sin(x)$, $\cos(x)$ og $\tan(x)$, samt hvordan man kan anvende enhedscirklen og Taylorpolynomier til at finde en approksimation $\pi$.
 \section{Taylorrække for $\sin(x)$}
-Når man udleder en Taylorrække er det værd at tænke på, hvilken $a$-værdi man vælger, da den ofte afgør, hvor nyttig Taylorrækken er. Målet med Taylorrækken er at gøre $\sin(x)$ nemmere at regne på, så ideelt vil man blandt $\sin(x)$ og dens afledte finde værdier for $a$, der giver heltal eller nemme brøker. Først differentieres $\sin(x)$, så man kan skabe sig et overblik over de afledte til funktionen;
+Når man udleder en Taylorrække, så er det værd at tænke på, hvilken $a$-værdi man vælger, da den ofte afgør, hvor nyttig Taylorrækken er. Målet med Taylorrækken er at gøre $\sin(x)$ nemmere at regne på, så ideelt vil man blandt $\sin(x)$ og dens afledte finde værdier for $a$, der giver heltal eller nemme brøker. Først differentieres $\sin(x)$, så man kan skabe sig et overblik over de afledte til funktionen;
 \begin{align*}
 f(x) &= \sin(x) \\
 f'(x) &= \cos(x) \\
 f''(x) &= -\sin(x) \\
 f^{(3)}(x) &= -\cos(x) \\
 \end{align*}
-Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\sin(x)$ og $\cos(x)$. Hvis man ser på enhedscirklen, så vil funktionerne alle give heltal for hver kvarte omgang, hvilket svarer værdier af $1/2\pi$ ganget med et heltal $z$, hvor $z\in\mathbb{Z}$. Hvis $a=1/2\pi z$, så giver $\sin(x)$ og dens afledte pæne værdier i form af heltallene $-1$, $0$ og $1$. Dog så vil Taylorrækken indeholde $\pi$ for alle $z \neq 0$, hvilket kan gøre udregninger senere svære. Derfor vælges $z=0$ og dermed $a=0$, hvilket giver følgende værdier for $\sin(x)$ og dens afledte;
+Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\sin(x)$ og $\cos(x)$. Hvis man ser på enhedscirklen, så vil funktionerne alle give heltal for hver kvarte omgang fra startpunktet $(0,0)$, hvilket svarer værdier af $1/2\pi$ ganget med et heltal $z$, hvor $z\in\mathbb{Z}$. Hvis $a=1/2\pi z$, så giver $\sin(x)$ og dens afledte pæne værdier i form af heltallene $-1$, $0$ og $1$. Dog så vil Taylorrækken indeholde $\pi$ for alle $z \neq 0$, hvilket kan gøre udregninger senere svære. Derfor vælges $z=0$ og dermed $a=0$, hvilket giver følgende værdier for $\sin(x)$ og dens afledte;
 \begin{align*}
 \sin(0) &= 0 \\
 \cos(0) &= 1 \\
@@ -17,12 +18,12 @@ Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\si
 \end{align*}
 Taylorrækken for $\sin(x)$ omkring $0$ bliver derfor;
 \begin{align*}
-T_{\sin} (x) &= 0+x+0 \cdot \frac{x^2}{2}-\frac{x^3}{3!}+0 \cdot \frac{x^4}{4!}+\frac{x^5}{5!}+... 
+T_{\sin} (x) &= 0+x+0 \cdot \frac{x^2}{2}-\frac{x^3}{3!}+0 \cdot \frac{x^4}{4!}+\frac{x^5}{5!}+\cdots 
 \\
-T_{\sin} (x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+... \\
+T_{\sin} (x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots \\
 \end{align*}
 %kilde til ulige funktioners maclaurinrækker
-Siden $\sin(x)$ er en ulige funktion, da $\sin(x)=-\sin(-x)$, så er $f^{n}(0)=0$, hvis $n \mod 2=0$. Dermed er det kun de led, hvor $x$ er opløftet i en ulige eksponent tilbage, hvor eksponenten kan udtrykkes som $2n+1$, for $n\in \mathbb{N}_0$. De resterende led skrifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative i rigtig rækkefølge. Dermed bliver summen for Taylorrækken for $\sin(x)$ omkring $0$;
+Siden $\sin(x)$ er en ulige funktion, da $\sin(x)=-\sin(-x)$, så er $f^{(n)}(0)=0$, hvis $n \mod 2=0$. Dermed er det kun de led, hvor $x$ er opløftet i en ulige eksponent, tilbage, hvor eksponenten kan udtrykkes som $2n+1$, for $n\in \mathbb{N}_0$. De resterende led skrifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative i rigtig rækkefølge. Dermed bliver summen for Taylorrækken for $\sin(x)$ omkring $0$;
 \begin{align*}
 T_{\sin}(x)=\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
 \end{align*}
@@ -30,35 +31,35 @@ Der er dog ingen garanti for, at rækken konvergerer med $\sin(x)$. Derfor teste
 \begin{align*}
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2(n+1)+1)!}}
-{\frac{(-1)^n}{(2n+1)!}} 
+\frac{\frac{(-1)^{n+1}}{(2(n+1)+1)!}x^{2(n+1)+1}}
+{\frac{(-1)^n}{(2n+1)!}x^{2n+1}} 
 \right\lvert
 &=
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2n+3)!}}
-{\frac{(-1)^n}{(2n+1)!}}
+\frac{\frac{(-1)^{n+1}}{(2n+3)!}x^{2n+3}}
+{\frac{(-1)^n}{(2n+1)!}x^{2n+1}}
 \right\lvert 
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+3)!}}
-{\frac{\left\lvert (-1)^n \right\lvert }{(2n+1)!}}
+\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+3)!} \left\lvert x^{2n+3} \right\lvert }
+{\frac{\left\lvert (-1)^n \right\lvert }{(2n+1)!} \left\lvert x^{2n+1} \right\lvert }
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{1}{(2n+3)!}}
-{\frac{1}{(2n+1)!} }
+\frac{\frac{\left\lvert x^{2n+3} \right\lvert}{(2n+3)!}}
+{\frac{\left\lvert x^{2n+1} \right\lvert}{(2n+1)!} }
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{1}{(2n+3)!}
+\frac{\left\lvert x^{2n+3} \right\lvert}{(2n+3)!}
 \cdot
-\frac{(2n+1)!}{1}
+\frac{(2n+1)!}{\left\lvert x^{2n+1} \right\lvert}
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{1}{(2n+3)(2n+2)}
+\frac{\left\lvert x^{2} \right\lvert}{(2n+3)(2n+2)}
 =0 \\
 \end{align*}
 Det viser sig, at rækken konvergerer med $\sin(x)$ for alle $x$'er, da $r=\infty$, hvor $r$ er konvergensradiussen.
@@ -86,29 +87,35 @@ Igen kan man anvende kvotientkriteriet på rækken for at se, om den konvergerer
 \begin{align*}
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2(n+1))!}}
-{\frac{(-1)^n}{(2n)!}} 
+\frac{\frac{(-1)^{n+1}}{(2(n+1))!}x^{2(n+1)}}
+{\frac{(-1)^n}{(2n)!}x^{2n}} 
 \right\lvert
 &=
 \lim\limits_{n \to \infty}
 \left\lvert
-\frac{\frac{(-1)^{n+1}}{(2n+2)!}}
-{\frac{(-1)^n}{(2n)!}}
+\frac{\frac{(-1)^{n+1}}{(2n+2)!}x^{2n+2}}
+{\frac{(-1)^n}{(2n)!}x^{2n}}
 \right\lvert 
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+2)!}}
-{\frac{\left\lvert (-1)^n \right\lvert }{(2n)!}}
+\frac{\frac{\left\lvert (-1)^{n+1} \right\lvert }{(2n+2)!} \left\lvert x^{2n+2} \right\lvert }
+{\frac{\left\lvert (-1)^n \right\lvert }{(2n)!} \left\lvert x^{2n} \right\lvert }
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{\frac{1}{(2n+2)!}}
-{\frac{1}{(2n)!} }
+\frac{\frac{\left\lvert x^{2n+2} \right\lvert}{(2n+2)!}}
+{\frac{\left\lvert x^{2n} \right\lvert}{(2n)!} }
 \\
 &=
 \lim\limits_{n \to \infty}
-\frac{1}{(2n+2)(2n+1)}
+\frac{\left\lvert x^{2n+2} \right\lvert}{(2n+2)!}
+\cdot
+\frac{(2n)!}{\left\lvert x^{2n} \right\lvert}
+\\
+&=
+\lim\limits_{n \to \infty}
+\frac{\left\lvert x^{2} \right\lvert}{(2n+2)(2n+1)}
 =0 \\
 \end{align*}
 Dermed konvergerer denne række med $\cos(x)$ for alle $x$'er. Rækken er også kendt som Maclaurinrækken for $\cos(x)$;
