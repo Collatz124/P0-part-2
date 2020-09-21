@@ -59,7 +59,7 @@ Ved hjælp af $R$ kan Taylorrækkens konvergens klassificeres indenfor 3 forskel
     hvilket vil sige at Taylorrækken slet ikke konvergere ud over punktet $x = a$
     \item $R = \infty$ i så fald gælder $\lim_{n \rightarrow \infty} T_f(x) = f(x)$ for alle $x \in \mathbb{R}$,
     hvilket vil sige at Taylorrækken $T_f$ konvergere imod funktionen $f(x)$ for alle værdier.
-    \item $R = c$ hvor $c \in \mathbb{R}\setminus\{0\}$ i så fald konvergere Taylorrækken kun i området $a - R < X < a + R$.
+    \item $R = c$ hvor $c \in \mathbb{R}\setminus\{0\}$ i så fald konvergere Taylorrækken kun i området $a - R < x < a + R$.
 \end{enumerate}
 For at finde konvergensradiusen for en Taylorrække kan koefficientkriteriet benyttes, ligesom det kan ved andre potensrækker.
 \begin{defn} % Definitation af koeficient kriteriet
@@ -73,12 +73,12 @@ For at finde konvergensradiusen for en Taylorrække kan koefficientkriteriet ben
 % TODO: Bevis´https://users.math.msu.edu/users/gnagy/teaching/12-spring/mth133/L30-133.pdf 
 \section{Eksempler}
 \subsection*{\textbf{Eksempel:} Maclaurinrækken for $e^x$ og dens radius for konvergens} 
-Der ønskes en Maclaurinrække for beregning af funktions værdien for funktionen $f(x) = e^x$.
+Der ønskes en Maclaurinrække for beregning af funktionsværdien for funktionen $f(x) = e^x$.
 Da $\dfrac{d}{dx}e^x = e^x$ kan Maclaurinrækken opskrives som:
 \[
     T_{e^x}(x) = \sum^\infty_{n = 0} \frac{e^a}{n!}(x-a)^n
 \]
-Da der er tale om en Maclaurinrække og $a = 0$ derfor må gælde kan rækken forsimples yderligere:
+Da er tale om en Maclaurinrække, og $a = 0$ derfor må gælde, kan rækken forsimples yderligere:
 \[
     T_{e^x}(x) = \sum^\infty_{n = 0} \frac{1}{n!}(x-a)^n
 \]
@@ -97,7 +97,7 @@ Derved kan følgende udtryk opstilles:
 \[
     e^x = \sum^\infty_{n = 0} \frac{x^n}{n!}  
 \]
-\subsection*{\textbf{Eksempel:} Taylorrækken rækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
+\subsection*{\textbf{Eksempel:} Taylorrækken for $ln(x)$ omkring $a = 1$ og dens radius for konvergens} % Taylorrække for ln(x)
 Taylorrækken for $ln(x)$ er givet ved:
 \[
     T_{ln}(x) = ln(a) + \frac{ln'(a)}{1!}(x-a)^1 + \frac{ln''(a)}{2!}(x-a)^2 + \ldots
