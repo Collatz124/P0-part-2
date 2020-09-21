@@ -1,14 +1,14 @@
 \chapter{Taylors sætning anvendt på trigonometriske funktioner og enhedscirklen}
-Dette kapitel vil vise, hvordan man anvender den før redegjort for teori på trigonometriske funktioner og til at tilnærme sig $\pi$. Målet er at vise, hvordan man numerisk kan udregne værdier for $\sin(x)$, $\cos(x)$ og $\tan(x)$, samt hvordan man kan anvende enhedscirklen og Taylorpolynomier til at finde en approksimation af $\pi$.
+Dette kapitel vil vise, hvordan man anvender den før redegjort for teori på trigonometriske funktioner og enhedscirklen. Målet er at vise, hvordan man numerisk kan udregne værdier for $\sin(x)$, $\cos(x)$ og $\tan(x)$, samt hvordan man kan anvende enhedscirklen og Taylorpolynomier til at tilnærme sig $\pi$.
 \section{Taylorrække for $\sin(x)$}
-Når man udleder en Taylorrække, så er det værd at tænke på, hvilken $a$-værdi man vælger, da den ofte afgør, hvor nyttig Taylorrækken er. Målet med Taylorrækken er at gøre $\sin(x)$ nemmere at regne på, så ideelt vil man blandt $\sin(x)$ og dens afledte finde værdier for $a$, der giver heltal eller nemme brøker. Først differentieres $\sin(x)$, så man kan skabe sig et overblik over de afledte til funktionen;
+Når man udleder en Taylorrække er det værd at tænke på, hvilken $a$-værdi man vælger, da den ofte afgør, hvor nyttig Taylorrækken er. Målet med Taylorrækken er at gøre $\sin(x)$ nemmere at regne på, så ideelt vil man blandt $\sin(x)$ og dens afledte finde værdier for $a$, der giver heltal eller nemme brøker. Først differentieres $\sin(x)$, så man kan skabe sig et overblik over de afledte til funktionen;
 \begin{align*}
 f(x) &= \sin(x) \\
 f'(x) &= \cos(x) \\
 f''(x) &= -\sin(x) \\
 f^{(3)}(x) &= -\cos(x) \\
 \end{align*}
-Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\sin(x)$ og $\cos(x)$. Hvis man ser på enhedscirklen, så vil funktionerne alle give heltal for hver kvarte omgang fra punktet $(0,0)$, hvilket svarer til værdier af $1/2\pi$ ganget med et heltal $z$, hvor $z\in\mathbb{Z}$. Hvis $a=1/2\pi z$, så giver $\sin(x)$ og dens afledte pæne værdier i form af heltallene $-1$, $0$ og $1$. Dog så vil Taylorrækken indeholde $\pi$ for alle $z \neq 0$, hvilket kan gøre udregninger senere svære. Derfor vælges $z=0$ og dermed $a=0$, hvilket giver følgende værdier for $\sin(x)$ og dens afledte;
+Sinusfunktionens afledte bliver ved med at svinge mellem positiv og negativ $\sin(x)$ og $\cos(x)$. Hvis man ser på enhedscirklen, så vil funktionerne alle give heltal for hver kvarte omgang, hvilket svarer værdier af $1/2\pi$ ganget med et heltal $z$, hvor $z\in\mathbb{Z}$. Hvis $a=1/2\pi z$, så giver $\sin(x)$ og dens afledte pæne værdier i form af heltallene $-1$, $0$ og $1$. Dog så vil Taylorrækken indeholde $\pi$ for alle $z \neq 0$, hvilket kan gøre udregninger senere svære. Derfor vælges $z=0$ og dermed $a=0$, hvilket giver følgende værdier for $\sin(x)$ og dens afledte;
 \begin{align*}
 \sin(0) &= 0 \\
 \cos(0) &= 1 \\
@@ -22,9 +22,9 @@ T_{sin} (x) &= 0+x+0 \cdot \frac{x^2}{2}-\frac{x^3}{3!}+0 \cdot \frac{x^4}{4!}+\
 T_{sin} (x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+... \\
 \end{align*}
 %kilde til ulige funktioners maclaurinrækker
-Siden $\sin(x)$ er en ulige funktion, da $\sin(x)=-sin(-x)$, så er $f^{n}(0)=0$, hvis $n \mod 2=0$. Dermed er det kun de led, hvor $x$ er opløftet i en ulige eksponent, tilbage, hvor eksponenten kan udtrykkes som $2n+1$, for $n\in \mathbb{N}_0$. De resterende led skifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative i rigtig rækkefølge. Dermed bliver summen for Taylorrækken for $\sin(x)$ omkring $0$;
+Siden $\sin(x)$ er en ulige funktion, da $\sin(x)=-sin(-x)$, så er $f^{n}(0)=0, \text{hvis} n \mod 2=0$. Dermed er det kun de led, hvor $x$ er opløftet i en ulige eksponent tilbage, hvor eksponenten kan udtrykkes som $2n+1$, for $n\in \mathbb{N}_0$. De resterende led skrifter mellem at være positive $1$ og negative $1$. Her ses det, at leddet $n=0$ er positivt, dermed kan man indfører $(-1)^n$ for at sikre, at leddene skifter mellem at være positive og negative i rigtig rækkefølge. Dermed bliver summen for Taylorrækken for $\sin(x)$ omkring $0$;
 \begin{align*}
-T_{sin} (x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
+\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}
 \end{align*}
 Der er dog ingen garanti for, at rækken konvergerer med $\sin(x)$. Derfor testes kvotientkriteriet for rækken;
 \begin{align*}
@@ -124,9 +124,10 @@ Dermed konvergerer denne række med $\cos(x)$ for alle $x$'er. Rækken er også 
 \end{equation}
 Hvorimod man kunne udlede rækken ved at arbejde med $\cos(x)$, så gjorde de kendte relationer mellem $\cos(x)$ og $\sin(x)$ det nemmere at udlede rækken med den allerede udledte række for $\sin(x)$ i ligning \ref{eq:sinrække}. Maclaurinrækken  for $\sin(x)$ kunne man også integrerer og multiplicerer med $-1$ for at få Maclaurinrækken for $\cos(x)$, da $\int \sin(x) dx=-\cos(x)+k$, hvor $k=-\cos(0)=-1$;
 \begin{align*}
--\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1} dx
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
 &=
 -\left(\sum_{n=1}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n}-1\right) \\
+-\int \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} dx
 &=
 \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!}x^{2n} \\
 \end{align*}
@@ -155,7 +156,8 @@ Hvis man tager delsumme af de to summe med samme øvre grænse, så for man en r
 \end{figure}
 Approksimationen af tangens går igen tilbage til Maclaurinpolynomierne på \ref{fig:taylor_sin}, da de rationelle funktioner på \ref{fig:approks_tan} kan omformuleres til $R(x)=p_n(x)/p_n'(x)$. Omformuleringen giver også god mening i forhold til gennemgangen, hvor Maclaurinrækken for $\cos(x)$ blev udledt ved at differentiere Maclaurinrækken for $\sin(x)$, så $\tan(x)=\sin(x)/\frac{d}{dx}\sin(x)$. Derfor kan man med et Maclaurinpolynomium for $\sin(x)$ approksimere $\tan(x)$ omkring $0$.
 \section{Approksimation af $\pi$}
-Taylorpolynomier kan også anvendes, når man skal bestemme en værdi numerisk. En sådan værdi kunne være $\pi$, hvor man anvender, hvordan $\pi$ hænger sammen med andre størrelser i cirkler. En sammenhæng er arealet af en cirkel og radiussen; $A=\pi \cdot r^2$. Her kan man med fordel vælge $r=1$, så $A=\pi$ og cirklen har ligningen $x^2+y^2=1$. Ligningen kan ændres, så man får en funktion over en halvcirkel; $y=g(x)=\sqrt{1-x^2}$. Arealet under funktionen er $\pi/2$, men det er besværligt at integrere $g(x)$, derfor dannes et Taylorpolynomium over funktionen, og det integreres i stedet for $g(x)$. Til denne funktion og dens afledte findes de pæneste værdier, når $x=0$, se appendix (\ref{app:afledte}).  % REFERE TIL APPENDIX
+Taylorpolynomier kan også anvendes, når man skal bestemme en værdi numerisk. En sådan værdi kunne være $\pi$, hvor man anvender, hvordan $\pi$ hænger sammen med andre størrelser i cirkler. En sammenhæng er arealet af en cirkel og radiussen; $A=\pi \cdot r^2$. Her kan man med fordel vælge $r=1$, så $A=\pi$ og cirklen har ligningen $x^2+y^2=1$. Ligningen kan ændres, så man får en funktion over en halvcirkel; $y=g(x)=\sqrt{1-x^2}$. Arealet under funktionen er $\pi/2$, men det er besværligt at integrere $g(x)$, derfor dannes et Taylorpolynomium over funktionen, og det integreres i stedet for $g(x)$. Til denne funktion og dens afledte findes de pæneste værdier, når $x=0$.
+???differentieringen ligger muligvis i appendiks???
 \begin{align*}
 g(0) &= 1 \\
 g'(0) &= 0 \\

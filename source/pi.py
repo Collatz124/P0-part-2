@@ -29,7 +29,7 @@ def intergrateTaylor (interval: (float), derivatives: [float], degreesToSave: [i
 if (__name__ == "__main__"): 
     x = Symbol("x", real = True) # SymPy Symbol used for the expression below
     f = sqrt(1 - x**2) # Expression for f(x)
-    derivatives = computeDerivatives(f = f, x = x, a = 0.0, degrees = 80) # Calculates the derivatives needed up f^(500)(a)
+    derivatives = computeDerivatives(f = f, x = x, a = 0.0, degrees = 500) # Calculates the derivatives needed up f^(500)(a)
     print(intergrateTaylor((-1, 1), derivatives, [10, 20, 50, 100, 200, 500])) # Computes the intergral on the interval [-1; 1]
     # Output: [1.58515737734488, 1.57628203375486, 1.57225240322015, 1.57131958196737, 1.57098284813794, 1.57084374682765]
 
