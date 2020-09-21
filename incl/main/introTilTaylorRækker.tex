@@ -30,11 +30,11 @@ og at dette vil skabe en god approksimation omkring punktet $a$.
     \]
     Når processen gentages $n$ gange opnåes følgende udtryk for $T_f^{(n)}(x)$:
     \[
-        T_f^{n}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
+        T_f^{(n)}(x) = f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(x-a)^{1} + \frac{f^{n + 2}(a)}{2!}(x-a)^{2} + \ldots
     \]
     Da de afledte skal være ens i punktet $a$ indsættes $x = a$:
     \begin{align*}
-        T_f^{n}(a) &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots \\
+        T_f^{(n)}(a) &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(a-a)^{1} + \frac{f^{(n + 2)}(a)}{2!}(a-a)^{2} + \ldots \\
                    &= f^{(n)}(a) + \frac{f^{(n + 1)}(a)}{1!}(0)^{1} + \frac{f^{(n + 2)}(a)}{2!}(0)^{2} + \ldots \\
                    &= f^{(n)}(a)        
     \end{align*}
@@ -115,7 +115,7 @@ Nu beregnes Taylorrækkens radius for konvergens:
 \[
     \frac{1}{R} = \lim_{n \rightarrow \infty} \left\lvert \frac{\frac{(-1)^{(n+2)}}{n+1}}{\frac{(-1)^{(n+1)}}{n}} \right\lvert
 \]
-Da både $\left\lvert -1^{(n+2)} \right\lvert = 1$ og $\left\lvert-1^{(n + 1)} \right\lvert = 1$ må gælde kan utrykket forsimples yderligere
+Da både $\left\lvert -1^{(n+2)} \right\lvert = 1$ og $\left\lvert-1^{(n + 1)} \right\lvert = 1$ må gælde kan utrykket forsimples yderligere da den absolute værdi kan ophæves
 \[
     \frac{1}{R} = \lim_{n \rightarrow \infty} \frac{\frac{1}{n+1}}{\frac{1}{n}} = \lim_{n \rightarrow \infty} \frac{n}{n+1} = 1
 \]
